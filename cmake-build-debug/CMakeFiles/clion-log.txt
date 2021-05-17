@@ -1,0 +1,4 @@
+C:\Users\Itamar\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug
