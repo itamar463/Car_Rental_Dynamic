@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Car_Rental_Dynamic.dir/Supplier.c.o"
   "CMakeFiles/Car_Rental_Dynamic.dir/ValidInput.c.o"
   "CMakeFiles/Car_Rental_Dynamic.dir/main.c.o"
+  "CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o"
   "Car_Rental_Dynamic.exe"
   "Car_Rental_Dynamic.pdb"
   "libCar_Rental_Dynamic.dll.a"

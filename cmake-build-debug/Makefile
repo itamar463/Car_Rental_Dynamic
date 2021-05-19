@@ -305,6 +305,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Car_Rental_Dynamic.dir/build.make CMakeFiles/Car_Rental_Dynamic.dir/main.c.s
 .PHONY : main.c.s
 
+matam.o: matam.c.o
+
+.PHONY : matam.o
+
+# target to build an object file
+matam.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Car_Rental_Dynamic.dir/build.make CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o
+.PHONY : matam.c.o
+
+matam.i: matam.c.i
+
+.PHONY : matam.i
+
+# target to preprocess a source file
+matam.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Car_Rental_Dynamic.dir/build.make CMakeFiles/Car_Rental_Dynamic.dir/matam.c.i
+.PHONY : matam.c.i
+
+matam.s: matam.c.s
+
+.PHONY : matam.s
+
+# target to generate assembly for a file
+matam.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Car_Rental_Dynamic.dir/build.make CMakeFiles/Car_Rental_Dynamic.dir/matam.c.s
+.PHONY : matam.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -332,6 +359,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... matam.o"
+	@echo "... matam.i"
+	@echo "... matam.s"
 .PHONY : help
 
 

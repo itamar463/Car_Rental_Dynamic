@@ -107,6 +107,12 @@
 		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/main.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.c">
+			<Option target="Car_Rental_Dynamic"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.h">
+			<Option target="Car_Rental_Dynamic"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
