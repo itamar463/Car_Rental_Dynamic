@@ -29,5 +29,15 @@ int initSupplier(){
 }
 
 int addNewSupplier(){
+    if(list.head == NULL){
+        Supplier *tmp;
+        tmp->left = NULL;
+        tmp->right = NULL;
+        list.head = tmp;
+    }
+    initSupplier();
+
+
+
 
 }
