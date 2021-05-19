@@ -71,7 +71,7 @@ int client_valid(char *first_name, char *last_name, char *id, char *license_numb
         printf("Time not valid\n");
         return 0;
     }
-    if (valid_int(price_per_rent, 100, 999) == 1){
+    if (valid_int(price_per_rent, 100, 999) == 0){
         printf("Price not valid\n");
         return 0;
     }
@@ -81,7 +81,8 @@ int client_valid(char *first_name, char *last_name, char *id, char *license_numb
 Client init_client() {
     /*init Client by given details and using of client_valid func*/
     Client client;
-    char id[ID_LEN * 3], license_num[LICENSE_LEN * 3];
+    char id[ID_LEN * 3];
+    char license_num[LICENSE_LEN * 3];
     char *first_name = (char *) checked_malloc(sizeof(char *) * 231);
     char *last_name = (char *) checked_malloc(sizeof(char *) * 231);
     Date date_of_rent;
@@ -119,7 +120,19 @@ Client init_client() {
                      price_per_rent, date_of_rent, time_of_rent) == 0){
         return client;
     }
+    client.first_name = dupstr(first_name);
+    client.last_name = dupstr(last_name);
+    strcpy(client.id,id);
+    strcpy(client.license_number,license_num);
+    client.date_of_rent = date_of_rent;
+    client.hour_of_rent = time_of_rent;
+    client.price_per_rent = price_per_rent;
+    return client;
 
-        return client;
+}
+int addNewClient() {
+    /* add a new Client to the clientList by using helper functions*/
+    Client check = init_client();
+    return 1;
 
 }
