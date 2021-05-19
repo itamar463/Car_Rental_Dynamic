@@ -108,3 +108,6 @@ int valid_long(long num, long min, long max) {
         return 0;
     } else return 1;
 }
+char *dupstr(const char *str) {
+    return strcpy(malloc(strlen(str) + 1), str);
+}

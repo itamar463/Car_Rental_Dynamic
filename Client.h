@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "ValidInput.h"
 #include <ctype.h>
+#include "matam.h"
 #define LICENSE_LEN 7
 #define ID_LEN 9
 
@@ -18,8 +19,8 @@ typedef struct {
     int month;
     int day;
 }Date;
-struct Date create_date(int year, int month, int day);
-void print_date(struct Date d);
+Date create_date(int year, int month, int day);
+void print_date(Date d);
 
 typedef struct{
     int hour;
@@ -29,7 +30,7 @@ Time create_time(int hour, int minute);
 void print_time( Time t);
 
 
-struct Client {
+typedef struct{
     char* first_name;
     char* last_name;
     char id[ID_LEN + 1];
@@ -37,7 +38,7 @@ struct Client {
     Date date_of_rent;
     Time hour_of_rent;
     int price_per_rent;
-};
+}Client;
 
 int createClientList();
 
