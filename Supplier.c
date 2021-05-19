@@ -29,13 +29,20 @@ int initSupplier(){
 }
 
 int addNewSupplier(){
+    Supplier *tmp;
+    Supplier *list1;
     if(list.head == NULL){
-        Supplier *tmp;
+        tmp =  initSupplier();
         tmp->left = NULL;
         tmp->right = NULL;
         list.head = tmp;
+        Supplier *list1 = tmp;
     }
-    initSupplier();
+    else {
+        tmp = initSupplier();
+        list.head->right = tmp;
+
+    }
 
 
 
