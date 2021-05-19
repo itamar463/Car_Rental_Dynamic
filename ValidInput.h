@@ -6,6 +6,7 @@
 #define CAR_RENTAL_DYNAMIC_VALIDINPUT_H
 #include <string.h>
 #include <stdio.h>
+#include "stdlib.h"
 
 int isLetter(char letter);
 int isDigit(char isNum);
@@ -18,5 +19,6 @@ int check_value_size(char* str,int size);
 int check_equal_size(char* str,int size);
 int valid_int(int num,int min,int max);
 int valid_long(long num,long min,long max);
+char *dupstr(const char *str);
 
 #endif

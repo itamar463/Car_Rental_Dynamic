@@ -42,6 +42,10 @@ Client.h
 
 /cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Common.h
 
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.c
+Supplier.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.h
+
 /cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.h
 stdio.h
 -
@@ -58,19 +62,5 @@ stdio.h
 
 /cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/main.c
 stdio.h
--
-
-/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/matam.c
-matam.h
-/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/matam.h
-stdio.h
--
-
-/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/matam.h
-malloc.h
--
-stdio.h
--
-stdlib.h
 -
 

@@ -1,7 +1,8 @@
 #include <stdio.h>
-
+#include "Car.h"
+#include "Client.h"
 int main() {
-    int n;
-    printf("Dd");
+    //addNewCar();
+    addNewClient();
     return 0;
 }
