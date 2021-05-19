@@ -18,18 +18,28 @@ int isDigit(char isNum) {
 int valid_char_check(char *str) {
     /* check isChar for a String in a for loop*/
     int i;
-    if (strlen(str) == 0)return 0;
+    if (strlen(str) == 0){
+        printf("%s is not valid!\n", str);
+        return 0;
+    }
     for (i = 0; i < strlen(str); i++) {
-        if (isLetter(str[i]) == 0) return 0;
+        if (isLetter(str[i]) == 0){
+            printf("%s is not valid!\n", str);
+         return 0;}
     }
     return 1;
 }
 int valid_digit_check(char *str) {
     /* check isDigit for a String in a for loop*/
     int i;
-    if (strlen(str) == 0)return 0;
+    if (strlen(str) == 0){
+        printf("%s is not valid!\n", str);
+        return 0;
+    }
     for (i = 0; i < strlen(str); i++) {
-        if (isDigit(str[i]) == 0) return 0;
+        if (isDigit(str[i]) == 0){
+            printf("%s is not valid!\n", str);
+         return 0;}
     }
     return 1;
 }
@@ -81,15 +91,27 @@ int time_valid(int hour, int minute) {
 
 int check_value_size(char *str, int size) {
     /* check the given string size*/
-    if (strlen(str) == 0)return 0;
-    if (strlen(str) > size)return 0;
+    if (strlen(str) == 0){
+        printf("%s is not valid!\n", str);
+        return 0;
+    }
+    if (strlen(str) > size){
+        printf("%s is not valid!\n", str);
+        return 0;
+    }
     else return 1;
 }
 
 int check_equal_size(char *str, int size) {
     /* check for equal string size*/
-    if (strlen(str) == 0)return 0;
-    if (strlen(str) != size)return 0;
+    if (strlen(str) == 0){
+        printf("%s is not valid!\n", str);
+        return 0;
+    }
+    if (strlen(str) != size){
+        printf("%s is not valid!\n", str);
+        return 0;
+    }
     else return 1;
 }
 

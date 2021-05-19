@@ -11,7 +11,10 @@
 
 #define AUTH_DEALER_NUM_LEN 10
 #define SUPP_PHONE_LEN 10
-
+#define MIN_NUM_DEALS 9999
+#define MAX_NUM_DEALS 100000
+#define MIN_SUM_DEALS 999999999
+#define MAX_SUM_DEALS 10000000000
 typedef struct {
     char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
     char *supplier_name;
