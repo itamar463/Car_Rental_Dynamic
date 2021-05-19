@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< HEAD
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.c
 Car.h
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.h
 
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.h
+=======
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Car.h
+>>>>>>> origin/master
 string.h
 -
 stdio.h
@@ -18,15 +22,24 @@ stdio.h
 stdlib.h
 -
 ValidInput.h
+<<<<<<< HEAD
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/ValidInput.h
 matam.h
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.h
 
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/ValidInput.h
+=======
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/ValidInput.h
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Client.h
+stdlib.h
+-
+>>>>>>> origin/master
 string.h
 -
 stdio.h
 -
+<<<<<<< HEAD
 stdlib.h
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/stdlib.h
 
@@ -36,5 +49,46 @@ malloc.h
 stdio.h
 -
 stdlib.h
+=======
+ValidInput.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/ValidInput.h
+ctype.h
+-
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Common.c
+Common.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Common.h
+stdio.h
+-
+Car.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Car.h
+Supplier.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.h
+Client.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Client.h
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Common.h
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.c
+Supplier.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.h
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.h
+stdio.h
+-
+string.h
+-
+ValidInput.h
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/ValidInput.h
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/ValidInput.h
+string.h
+-
+stdio.h
+-
+
+/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/main.c
+stdio.h
+>>>>>>> origin/master
 -
 

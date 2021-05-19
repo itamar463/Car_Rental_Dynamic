@@ -12,15 +12,21 @@
 #define AUTH_DEALER_NUM_LEN 10
 #define SUPP_PHONE_LEN 10
 
-
 typedef struct {
     char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
     char *supplier_name;
     char supplier_phone_num[SUPP_PHONE_LEN + 1];
     int number_of_deals_withSupp;
     long sum_of_general_deals_withSupp;
+    struct Supplier *right ;
+    struct Supplier *left;
 } Supplier;
 
+struct List{
+    Supplier *head;
+    Supplier *tail;
+};
+struct List list;
 
 void print1();
 

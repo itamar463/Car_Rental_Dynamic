@@ -8,8 +8,8 @@
 #include <string.h>
 #include <stdio.h>
 #include "ValidInput.h"
-#include <ctype.h>
 #include "matam.h"
+#include <ctype.h>
 #define LICENSE_LEN 7
 #define ID_LEN 9
 
@@ -30,7 +30,7 @@ Time create_time(int hour, int minute);
 void print_time( Time t);
 
 
-typedef struct{
+typedef struct {
     char* first_name;
     char* last_name;
     char id[ID_LEN + 1];
