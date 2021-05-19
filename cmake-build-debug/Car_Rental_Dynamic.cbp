@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Car_Rental_Dynamic">
-				<Option output="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Car_Rental_Dynamic.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Car_Rental_Dynamic.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -49,15 +49,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 Car_Rental_Dynamic"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 Car_Rental_Dynamic"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Car_Rental_Dynamic/fast">
-				<Option output="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Car_Rental_Dynamic.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Car_Rental_Dynamic.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,53 +67,53 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 Car_Rental_Dynamic/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 Car_Rental_Dynamic/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Car.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.h">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Car.h">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Client.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Client.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Client.h">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Client.h">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Common.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Common.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Common.h">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Common.h">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Supplier.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Supplier.h">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/Supplier.h">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/ValidInput.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/ValidInput.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/ValidInput.h">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/ValidInput.h">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/main.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/main.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.c">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/matam.c">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.h">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/matam.h">
 			<Option target="Car_Rental_Dynamic"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/CMakeLists.txt">
+		<Unit filename="/cygdrive/c/Users/User/CLionProjects/Car_Rental_Dynamic/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
