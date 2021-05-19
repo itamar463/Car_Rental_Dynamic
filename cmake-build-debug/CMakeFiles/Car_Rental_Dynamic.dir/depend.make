@@ -23,3 +23,6 @@ CMakeFiles/Car_Rental_Dynamic.dir/ValidInput.c.o: ../ValidInput.h
 
 CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../main.c
 
+CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o: ../matam.c
+CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o: ../matam.h
+
