@@ -37,7 +37,7 @@ struct Supplier getSupplierDetails();
 
 int addNewSupplier(List** head);
 
-int deleteSupplier();
+int deleteSupplier(List** head);
 
 int deleteAllSuppliers();
 

@@ -6,8 +6,13 @@ int main() {
     List* head = createSupplierList();
     addNewSupplier(&head);
     addNewSupplier(&head);
-    printf("%s",head->data->supplier_name);
+
+
+    deleteSupplier(&head);
+
     //addNewCar();
+
+    print1(&head);
     //addNewClient();
     return 0;
 }

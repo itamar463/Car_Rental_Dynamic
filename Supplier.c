@@ -4,6 +4,15 @@
 
 #include "Supplier.h"
 
+void print1(List** head){
+    List* tmp = *head;
+    while (tmp!=NULL){
+        printf("%s\n%s\n%s\n%d\n%ld\n" , tmp->data->supplier_name, tmp->data->authorized_dealer_num , tmp->data->supplier_phone_num , tmp->data->number_of_deals_withSupp ,tmp->data->sum_of_general_deals_withSupp);
+        tmp=tmp->next;
+    }
+}
+
+
 List* createSupplierList() {
     List * list = NULL;
     return list;
@@ -26,41 +35,6 @@ int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier
 
     return 1;
 }
-//    if (checkValues(authorized_dealer_num, supplier_name, supplier_phone_num, number_of_deals_withSupp,
-//                    sum_of_general_deals_withSupp) == 0) {
-//        temporarySupp.sum_of_general_deals_withSupp = -1;
-//        return 0;
-//    }
-//    return 1;
-//int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier_phone_num, int number_of_deals,
-//                long sum_of_general) {
-//    /*check if the values input is according the legality*/
-//    /*LEN CHECK*/
-//    /*DIGIT-CHAR CHEK*/
-//    if (valid_digit_check(authorized_dealer_num) == 0 ||
-//        check_equal_size(authorized_dealer_num, AUTH_DEALER_NUM_LEN) == 0) {
-//        printf("Authorized_dealer_num not right\n");
-//        return 0;
-//    }
-//    if (valid_digit_check(supplier_phone_num) == 0 || check_equal_size(supplier_phone_num, SUPP_PHONE_LEN) == 0) {
-//        printf("Supplier_phone_num not right\n");
-//        return 0;
-//    }
-//    /*LETTER CHECK*/
-//    if (valid_char_check(supplier_name) == 0) {
-//        printf("Supplier name not right\n");
-//        return 0;
-//    }
-//    if (valid_int(number_of_deals, 10000, 100000) == 0) {
-//        printf("Number of deals not right\n");
-//        return 0;
-//    }
-//    if (valid_long(sum_of_general, 1000000000, 9999999999) == 0) {
-//        printf("Sum of general not right\n");
-//        return 0;
-//    }
-//    return 1;
-//}
 
 Supplier* initSupplier() {
     char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
@@ -94,12 +68,49 @@ Supplier* initSupplier() {
 
 }
 
+int deleteSupplier(List** head){
+    List* curr = *head;
+    List* beforeCurr = *head;
+    char deleteSupplier[AUTH_DEALER_NUM_LEN+1];
+    printf("enter the  authorized dealer num : ");
+    scanf("%s" ,deleteSupplier);
+    while(curr !=NULL){
+        if(strcmp(curr->data->authorized_dealer_num, deleteSupplier) == 0){
+            List* tmp;
+            if(curr == *head || curr->next == NULL){
+                tmp = curr->next;
+                checked_free(curr->data->supplier_name);
+                checked_free(curr->data);
+                checked_free(curr);
+                *head = tmp;
+                printf("supplier deleted \n");
+                return 1;
+            }
+            tmp = curr->next;
+            checked_free(curr->data->supplier_name);
+            checked_free(curr->data);
+            checked_free(curr);
+            beforeCurr = tmp;
+            printf("supplier deleted \n");
+            return 1;
+
+        }
+        else beforeCurr = curr;
+            curr = curr->next;
+
+
+    }
+    printf("supplier not found\n");
+    return 0 ;
+
+}
 
 
 int addToList(List** head) {
     List * new;
     new = (List *) checked_malloc(sizeof(List));
     new->data = initSupplier();
+    new->next = NULL;
     if (new->data==NULL){
         checked_free(new);
         return 0;
