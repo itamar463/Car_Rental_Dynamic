@@ -83,8 +83,8 @@ Client init_client() {
     Client client;
     char id[ID_LEN * 3];
     char license_num[LICENSE_LEN * 3];
-    char *first_name = (char *) checked_malloc(sizeof(char *) * 231);
-    char *last_name = (char *) checked_malloc(sizeof(char *) * 231);
+    char *first_name = (char *) checked_malloc(sizeof(char) * 1024);
+    char *last_name = (char *) checked_malloc(sizeof(char) * 1024);
     Date date_of_rent;
     int year, month, day, hour, minute;
     Time time_of_rent;
@@ -118,6 +118,7 @@ Client init_client() {
     client.hour_of_rent = time_of_rent;
     if (client_valid(first_name,last_name,id,license_num,
                      price_per_rent, date_of_rent, time_of_rent) == 0){
+        client.price_per_rent = -1;
         return client;
     }
     client.first_name = dupstr(first_name);

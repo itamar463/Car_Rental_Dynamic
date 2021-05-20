@@ -4,7 +4,7 @@
 
 #include "Supplier.h"
 
-int createSupplierList(){}
+int createSupplierList() {}
 
 int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier_phone_num ,
                 long sum_of_general_deals_withSupp, int number_of_deals_withSupp) {
@@ -23,11 +23,45 @@ int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier
 
     return 1;
 }
+//    if (checkValues(authorized_dealer_num, supplier_name, supplier_phone_num, number_of_deals_withSupp,
+//                    sum_of_general_deals_withSupp) == 0) {
+//        temporarySupp.sum_of_general_deals_withSupp = -1;
+//        return 0;
+//    }
+//    return 1;
+//int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier_phone_num, int number_of_deals,
+//                long sum_of_general) {
+//    /*check if the values input is according the legality*/
+//    /*LEN CHECK*/
+//    /*DIGIT-CHAR CHEK*/
+//    if (valid_digit_check(authorized_dealer_num) == 0 ||
+//        check_equal_size(authorized_dealer_num, AUTH_DEALER_NUM_LEN) == 0) {
+//        printf("Authorized_dealer_num not right\n");
+//        return 0;
+//    }
+//    if (valid_digit_check(supplier_phone_num) == 0 || check_equal_size(supplier_phone_num, SUPP_PHONE_LEN) == 0) {
+//        printf("Supplier_phone_num not right\n");
+//        return 0;
+//    }
+//    /*LETTER CHECK*/
+//    if (valid_char_check(supplier_name) == 0) {
+//        printf("Supplier name not right\n");
+//        return 0;
+//    }
+//    if (valid_int(number_of_deals, 10000, 100000) == 0) {
+//        printf("Number of deals not right\n");
+//        return 0;
+//    }
+//    if (valid_long(sum_of_general, 1000000000, 9999999999) == 0) {
+//        printf("Sum of general not right\n");
+//        return 0;
+//    }
+//    return 1;
+//}
 
-
-int initSupplier(){
+int initSupplier() {
     char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
-    char* supplier_name;
+    char *supplier_name = (char *) checked_malloc(sizeof(char) * 1024);
     char supplier_phone_num[SUPP_PHONE_LEN + 1];
     long sum_of_general_deals_withSupp;
     int number_of_deals_withSupp;
@@ -42,7 +76,7 @@ int initSupplier(){
     printf("enter  number_of_deals_withSupp : ");
     scanf("%d", &number_of_deals_withSupp);
     printf("enter  sum_of_general_deals_withSupp : ");
-    scanf("%d", &sum_of_general_deals_withSupp);
+    scanf("%ld", &sum_of_general_deals_withSupp);
 
 if( checkValues(authorized_dealer_num, supplier_name, supplier_phone_num ,
                    sum_of_general_deals_withSupp,  number_of_deals_withSupp) == 0){
@@ -51,23 +85,20 @@ if( checkValues(authorized_dealer_num, supplier_name, supplier_phone_num ,
     return 1;
 }
 
-int addNewSupplier(){
+int addNewSupplier() {
     Supplier *tmp;
     Supplier *list1;
-    if(list.head == NULL){
-        tmp =  initSupplier();
+    if (list.head == NULL) {
+        tmp = initSupplier();
         tmp->left = NULL;
         tmp->right = NULL;
         list.head = tmp;
         Supplier *list1 = tmp;
-    }
-    else {
+    } else {
         tmp = initSupplier();
         list.head->right = tmp;
 
     }
-
-
 
 
 }

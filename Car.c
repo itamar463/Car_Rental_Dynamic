@@ -14,15 +14,13 @@ int valid_car(char *license_num, char *chassis_number, char *maker, char *model,
         return 0;
     }
     if (valid_char_check(maker) == 0) {
-        printf("Maker not vaild\n");
+        printf("Maker not valid\n");
         return 0;
     }
     if (valid_char_check(model) == 0) {
-        printf("Model not valid\n");
         return 0;
     }
     if (valid_char_check(maker) == 0) {
-        printf("Maker not valid\n");
         return 0;
     }
     if (valid_char_check(color) == 0) {
@@ -43,9 +41,9 @@ Car init_car() {
     Car car;
     char license_number[LICENSE_NUM_LEN * 3];
     char chassis_number[CHASSIS_NUM_LEN * 3];
-    char *maker = (char *) checked_malloc(sizeof(char *) * 231);
-    char *model = (char *) checked_malloc(sizeof(char *) * 231);
-    char *color = (char *) checked_malloc(sizeof(char *) * 231);
+    char *maker = (char *) checked_malloc(sizeof(char) * 1024);
+    char *model = (char *) checked_malloc(sizeof(char) * 1024);
+    char *color = (char *) checked_malloc(sizeof(char) * 1024);
     int year_manufacture;
     int year_get_on_road;
     int price_that_paid;
