@@ -6,6 +6,7 @@ int main() {
     List* head = createSupplierList();
     addNewSupplier(&head);
     addNewSupplier(&head);
+    deleteSupplier(&head);
 
 
     deleteSupplier(&head);
