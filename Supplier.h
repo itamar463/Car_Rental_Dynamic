@@ -39,7 +39,7 @@ int addNewSupplier(List** head);
 
 int deleteSupplier(List** head);
 
-int deleteAllSuppliers();
+int deleteAllSuppliers(List** head);
 
 char **threeGreatestSuppliers_REC();
 

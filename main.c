@@ -6,13 +6,10 @@ int main() {
     List* head = createSupplierList();
     addNewSupplier(&head);
     addNewSupplier(&head);
-    deleteSupplier(&head);
-
-
-    deleteSupplier(&head);
-
+    deleteAllSuppliers(&head);
+    //addNewSupplier(&head);
+    //deleteSupplier(&head);
     //addNewCar();
-
     print1(&head);
     //addNewClient();
     return 0;

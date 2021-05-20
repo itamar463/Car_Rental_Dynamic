@@ -77,6 +77,7 @@ int deleteSupplier(List** head){
     if (temp != NULL && strcmp(temp->data->authorized_dealer_num,deleteSupplier)==0){
         (*head) = temp->next;
         checked_free(temp->data->supplier_name);
+        checked_free(temp->data);
         checked_free(temp);
     }
     while (temp != NULL && strcmp(temp->data->authorized_dealer_num,deleteSupplier) != 0) {
@@ -87,6 +88,7 @@ int deleteSupplier(List** head){
         return 0;
     prev->next = temp->next;
     checked_free(temp->data->supplier_name);
+    checked_free(temp->data);
     checked_free(temp);
     return 1;
 }
@@ -113,25 +115,13 @@ int addNewSupplier(List **head) {
     return 1;
 }
 
-//int deleteSupplier(List **head) {
-//    List * curr = *head;
-//    char deleteSupplier[AUTH_DEALER_NUM_LEN +1];
-//    printf("Enter authorized number: \n");
-//    scanf("%s",deleteSupplier);
-//    while (curr != NULL){
-//        if (strcmp(curr->data->authorized_dealer_num,deleteSupplier)==0){
-//            List * temp;
-//            temp = (*head)->next;
-//            checked_free(curr->data->supplier_name);
-//            checked_free(curr->data);
-//            checked_free(curr);
-//            *head = temp;
-//            printf("Supplier deleted\n");
-//            return 1;
-//        }
-//        curr = curr->next;
-//    }
-//    printf("Supplier not found\n");
-//    return 0;
-//}
-//
+int deleteAllSuppliers(List** head){
+    List *temp = (*head);
+    while (temp != NULL){
+        temp = (*head)->next;
+        checked_free(*head);
+        *head = temp;
+    }
+    return 1;
+}
+
