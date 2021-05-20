@@ -15,6 +15,7 @@ int isDigit(char isNum) {
     if (isNum >= 48 && isNum <= 57) return 1;
     else return 0;
 }
+
 int valid_char_check(char *str) {
     /* check isChar for a String in a for loop*/
     int i;
@@ -29,6 +30,7 @@ int valid_char_check(char *str) {
     }
     return 1;
 }
+
 int valid_digit_check(char *str) {
     /* check isDigit for a String in a for loop*/
     int i;
