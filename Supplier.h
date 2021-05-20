@@ -21,25 +21,21 @@ typedef struct {
     char supplier_phone_num[SUPP_PHONE_LEN + 1];
     int number_of_deals_withSupp;
     long sum_of_general_deals_withSupp;
-    struct Supplier *right ;
-    struct Supplier *left;
 } Supplier;
 
-struct List{
-    Supplier *head;
-    Supplier *tail;
-};
-struct List list;
+typedef struct List{
+    Supplier *data;
+    struct List* next;
+}List;
+
 
 void print1();
 
-int createSupplierList();
+List* createSupplierList();
 
 struct Supplier getSupplierDetails();
 
-void addToList(struct Supplier s);
-
-int addNewSupplier();
+int addNewSupplier(List** head);
 
 int deleteSupplier();
 

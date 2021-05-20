@@ -22,18 +22,17 @@ CMakeFiles/Car_Rental_Dynamic.dir/Common.c.o: ../matam.h
 CMakeFiles/Car_Rental_Dynamic.dir/Supplier.c.o: ../Supplier.c
 CMakeFiles/Car_Rental_Dynamic.dir/Supplier.c.o: ../Supplier.h
 CMakeFiles/Car_Rental_Dynamic.dir/Supplier.c.o: ../ValidInput.h
+CMakeFiles/Car_Rental_Dynamic.dir/Supplier.c.o: ../matam.h
 
 CMakeFiles/Car_Rental_Dynamic.dir/ValidInput.c.o: ../ValidInput.c
 CMakeFiles/Car_Rental_Dynamic.dir/ValidInput.c.o: ../ValidInput.h
 
 CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../Car.h
 CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../Client.h
+CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../Supplier.h
 CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../ValidInput.h
 CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../main.c
 CMakeFiles/Car_Rental_Dynamic.dir/main.c.o: ../matam.h
-
-CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o: ../matam.c
-CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o: ../matam.h
 
 CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o: ../matam.c
 CMakeFiles/Car_Rental_Dynamic.dir/matam.c.o: ../matam.h

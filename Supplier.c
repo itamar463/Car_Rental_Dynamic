@@ -4,7 +4,10 @@
 
 #include "Supplier.h"
 
-int createSupplierList() {}
+List* createSupplierList() {
+    List * list = NULL;
+    return list;
+}
 
 int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier_phone_num ,
                 long sum_of_general_deals_withSupp, int number_of_deals_withSupp) {
@@ -59,13 +62,13 @@ int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier
 //    return 1;
 //}
 
-int initSupplier() {
+Supplier* initSupplier() {
     char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
     char *supplier_name = (char *) checked_malloc(sizeof(char) * 1024);
     char supplier_phone_num[SUPP_PHONE_LEN + 1];
     long sum_of_general_deals_withSupp;
     int number_of_deals_withSupp;
-    Supplier temporarySupp;
+    Supplier* temporarySupp = (Supplier*) checked_malloc(sizeof(Supplier));
 
     printf("enter authorized_dealer_num : ");
     scanf("%s", authorized_dealer_num);
@@ -78,27 +81,40 @@ int initSupplier() {
     printf("enter  sum_of_general_deals_withSupp : ");
     scanf("%ld", &sum_of_general_deals_withSupp);
 
-if( checkValues(authorized_dealer_num, supplier_name, supplier_phone_num ,
-                   sum_of_general_deals_withSupp,  number_of_deals_withSupp) == 0){
-    return 0;
+    if (checkValues(authorized_dealer_num, supplier_name, supplier_phone_num,
+                    sum_of_general_deals_withSupp,number_of_deals_withSupp) == 1) {
+
+        strcpy(temporarySupp->supplier_phone_num, supplier_phone_num);
+        temporarySupp->supplier_name = dupstr(supplier_name);
+        strcpy(temporarySupp->authorized_dealer_num, authorized_dealer_num);
+        temporarySupp->sum_of_general_deals_withSupp = sum_of_general_deals_withSupp;
+        temporarySupp->number_of_deals_withSupp = number_of_deals_withSupp;
+    } else temporarySupp = NULL;
+    return temporarySupp;
+
 }
+
+
+
+int addToList(List** head) {
+    List * new;
+    new = (List *) checked_malloc(sizeof(List));
+    new->data = initSupplier();
+    if (new->data==NULL){
+        checked_free(new);
+        return 0;
+    }
+    new->next = *head;
+    *head = new;
     return 1;
 }
-
-int addNewSupplier() {
-    Supplier *tmp;
-    Supplier *list1;
-    if (list.head == NULL) {
-        tmp = initSupplier();
-        tmp->left = NULL;
-        tmp->right = NULL;
-        list.head = tmp;
-        Supplier *list1 = tmp;
-    } else {
-        tmp = initSupplier();
-        list.head->right = tmp;
-
+int addNewSupplier(List** head) {
+    int check = addToList(head);
+    if(check!=1){
+        printf("Supplier not added\n");
+        return 0;
+    }
+    return 1;
     }
 
 
-}
