@@ -2,11 +2,10 @@
 #include "Client.h"
 Date create_date(int year, int month, int day) {
     /*Creating a date by given details*/
-    Date today;
+    Date today = { 0 , 0 , 0};
     if (date_valid(year, month, day) == 0) {
-        today.year = -1;
-        today.month = -1;
-        today.day = -1;
+        printf("date not valid \n");
+        return today;
     } else {
         today.year = year;
         today.month = month;
@@ -25,11 +24,12 @@ void print_date(Date d) {
 
 Time create_time(int hour, int minute) {
     /* create Time struct by given details*/
-    Time current_hour;
+    Time current_hour = { 0 , 0};
     if (time_valid(hour, minute) == 0) {
-        current_hour.hour = -1;
-        current_hour.minute = -1;
-    } else {
+        printf("time not valid \n");
+        return current_hour;
+    }
+    else {
         current_hour.hour = hour;
         current_hour.minute = minute;
     }
@@ -44,43 +44,29 @@ void print_time(Time t) {
     printf("%d\n", t.minute);
 }
 
-int client_valid(char *first_name, char *last_name, char *id, char *license_number, int price_per_rent, Date date,
-                 Time time) {
+int client_valid(char *first_name, char *last_name, char *id, char *license_number, int price_per_rent) {
     /* check for Client validation using functions from ValueChecker*/
     if (valid_char_check(first_name) == 0){
-        printf("Name not valid\n");
         return 0;
     }
     if (valid_char_check(last_name) == 0){
-        printf("Last name not valid\n");
         return 0;
     }
     if (valid_digit_check(id) == 0 || check_equal_size(id,ID_LEN)==0){
-        printf("ID not valid\n");
         return 0;
     }
     if (valid_digit_check(license_number) == 0 || check_equal_size(license_number,LICENSE_LEN)==0){
-        printf("License number not valid\n");
-        return 0;
-    }
-    if (date.year == -1){
-        printf("Date not valid\n");
-        return 0;
-    }
-    if (time.hour == -1){
-        printf("Time not valid\n");
         return 0;
     }
     if (valid_int(price_per_rent, 100, 999) == 0){
-        printf("Price not valid\n");
         return 0;
     }
     return 1;
 }
 
-Client init_client() {
+Client *initClient() {
     /*init Client by given details and using of client_valid func*/
-    Client client;
+    Client *client = (Client *) checked_malloc(sizeof(Client));
     char id[ID_LEN * 3];
     char license_num[LICENSE_LEN * 3];
     char *first_name = (char *) checked_malloc(sizeof(char) * 1024);
@@ -89,6 +75,7 @@ Client init_client() {
     int year, month, day, hour, minute;
     Time time_of_rent;
     int price_per_rent;
+    printf("NEW CLIENT : \n");
     printf("Enter ID (9 digits): \n");
     scanf("%s", id);
     printf("Enter first name: \n");
@@ -103,37 +90,125 @@ Client init_client() {
     scanf("%d %d", &hour, &minute);
     printf("Enter price per rent for 24 hours (number of 3 digits): \n");
     scanf("%d", &price_per_rent);
-//    if (strlen(id) != ID_LEN)strcpy(client.id, "");
-//    else strcpy(client.id, id);
-//    if (strlen(first_name) > FIRST_NAME_LEN)strcpy(client.first_name, "");
-//    else strcpy(client.first_name, first_name);
-//    if (strlen(last_name) > LAST_NAME_LEN)strcpy(client.last_name, "");
-//    else strcpy(client.last_name, last_name);
-//    if (strlen(license_num) > LICENSE_LEN)strcpy(client.license_number, "");
-//    else strcpy(client.license_number, license_num);
-//    client.price_per_rent = price_per_rent;
     date_of_rent = create_date(year, month, day);
     time_of_rent = create_time(hour, minute);
-    client.date_of_rent = date_of_rent;
-    client.hour_of_rent = time_of_rent;
+
     if (client_valid(first_name,last_name,id,license_num,
-                     price_per_rent, date_of_rent, time_of_rent) == 0){
-        client.price_per_rent = -1;
-        return client;
-    }
-    client.first_name = dupstr(first_name);
-    client.last_name = dupstr(last_name);
-    strcpy(client.id,id);
-    strcpy(client.license_number,license_num);
-    client.date_of_rent = date_of_rent;
-    client.hour_of_rent = time_of_rent;
-    client.price_per_rent = price_per_rent;
+                     price_per_rent) == 1 && date_of_rent.day !=0 && time_of_rent.hour!= 0){
+        strcpy(client->id,id);
+        strcpy(client->license_number,license_num);
+        client->first_name = dupstr(first_name);
+        client->last_name = dupstr(last_name);
+        client->date_of_rent = date_of_rent;
+        client->hour_of_rent = time_of_rent;
+        client->price_per_rent = price_per_rent;
+        return  client;}
+    strcpy( client->id  , "-1");
     return client;
 
-}
-int addNewClient() {
-    /* add a new Client to the clientList by using helper functions*/
-    Client check = init_client();
-    return 1;
 
 }
+
+ClientList *createClientList() {
+    ClientList *ClientList = NULL;
+    return ClientList;
+}
+
+int addToListC(ClientList **ClientHead) {
+    ClientList *new;
+    new = (ClientList *) checked_malloc(sizeof(ClientList));
+    new->data = initClient();
+    if (strcmp(new->data->id ,"-1") ==0) {
+        checked_free(new->data->first_name);
+        checked_free(new->data->last_name);
+        checked_free(new);
+        return 0;
+    }
+    new->next = *ClientHead;
+    *ClientHead = new;
+    return 1;
+}
+
+int addNewClient(ClientList** ClientHead) {
+    /* add a new Client to the clientList by using helper functions*/
+    int check = addToListC(ClientHead);
+    if(check!= 1){
+        printf("client not added\n");
+    }
+    return 1;
+}
+
+int deleteAllClients(ClientList** ClientHead){
+    ClientList *curr = (*ClientHead);
+    ClientList *temp = (*ClientHead);
+    while(curr != NULL){
+        curr = temp->next;
+        checked_free(temp->data->last_name);
+        checked_free(temp->data->first_name);
+        checked_free(temp->data);
+        checked_free(temp);}
+
+    printf("all supplier removed");
+    return 1;
+}
+
+int deleteClient(ClientList** ClientHead){
+    ClientList* temp = (*ClientHead);
+    ClientList* prev;
+    char deleteClient[ID_LEN];
+    printf("enter id client to remove : ");
+    scanf("%s" , deleteClient);
+    if (temp != NULL && strcmp(temp->data->id,deleteClient)==0){
+        (*ClientHead) = temp->next;
+        checked_free(temp->data->last_name);
+        checked_free(temp->data->first_name);
+        checked_free(temp->data);
+        checked_free(temp);
+        printf("client removed\n");
+        return 1;
+    }
+    while (temp != NULL && strcmp(temp->data->id,deleteClient) != 0) {
+        prev = temp;
+        temp = temp->next;
+    }
+    if (temp == NULL){
+        printf("client doesnt found\n");
+        return 0;
+    }
+    prev->next = temp->next;
+    checked_free(temp->data->last_name);
+    checked_free(temp->data->first_name);
+    checked_free(temp->data);
+    checked_free(temp);
+    printf("client removed\n");
+    return 1;
+}
+
+int printClientCarsForGivenRentDate(ClientList** ClientHead){
+    ClientList *temp = *ClientHead;
+    int year, month, day;
+    printf("Enter date: year , month , day\n");
+    scanf("%d %d %d", &year, &month, &day);
+    if (date_valid(year, month, day) == 0) {
+        printf("date not valid \n");
+        return 0;}
+
+    while(temp != NULL){
+        if(temp->data->date_of_rent.day == day && temp->data->date_of_rent.year == year &&
+                temp->data->date_of_rent.month == month ){
+            printf("CLIENT :\n"
+                   "first name : %s\n"
+                   "last name : %s\n"
+                   "id : %s\n"
+                   "car licence nuber : %s\n"
+                   "rent price for 24 hours : %d \n",temp->data->first_name , temp->data->last_name
+                   , temp->data->id , temp->data->license_number , temp->data->price_per_rent);
+            printf("rent date : ");
+            print_date(temp->data->date_of_rent);
+            printf("rent time : ");
+            print_time(temp->data->hour_of_rent);
+            temp =  temp->next;
+        }
+    }
+    return 1;
+    }

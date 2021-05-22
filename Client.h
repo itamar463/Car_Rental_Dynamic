@@ -19,16 +19,19 @@ typedef struct {
     int month;
     int day;
 }Date;
+
 Date create_date(int year, int month, int day);
+
 void print_date(Date d);
 
 typedef struct{
     int hour;
     int minute;
 }Time;
-Time create_time(int hour, int minute);
-void print_time( Time t);
 
+Time create_time(int hour, int minute);
+
+void print_time( Time t);
 
 typedef struct {
     char* first_name;
@@ -40,12 +43,18 @@ typedef struct {
     int price_per_rent;
 }Client;
 
-int createClientList();
+typedef struct ClientList{
+    Client *data;
+    struct List* next;
+}ClientList;
 
-int addNewClient();
+ClientList *createClientList();
 
-int deleteClient();
+int addNewClient(ClientList** head);
 
-int deleteAllClients();
+int deleteClient(ClientList** head);
 
+int deleteAllClients(ClientList** head);
+
+int printClientCarsForGivenRentDate(ClientList** head);
 #endif
