@@ -4,7 +4,7 @@
 
 #include "Supplier.h"
 
-void print1(List** head){
+int printSuppliers(List** head){
     List* tmp = *head;
     while (tmp!=NULL){
         printf("%s\n%s\n%s\n%d\n%ld\n" , tmp->data->supplier_name, tmp->data->authorized_dealer_num , tmp->data->supplier_phone_num , tmp->data->number_of_deals_withSupp ,tmp->data->sum_of_general_deals_withSupp);
@@ -15,7 +15,6 @@ void print1(List** head){
 
 List *createSupplierList() {
     List *list = NULL;
-
     return list;
 }
 
@@ -66,11 +65,11 @@ Supplier *initSupplier() {
         temporarySupp->number_of_deals_withSupp = number_of_deals_withSupp;
     } else temporarySupp = NULL;
     return temporarySupp;
-
 }
+
 int deleteSupplier(List** head){
-    List * temp = (*head);
-    List * prev;
+    List* temp = (*head);
+    List* prev;
     char deleteSupplier[AUTH_DEALER_NUM_LEN+1];
     printf("enter the  authorized dealer num : ");
     scanf("%s" ,deleteSupplier);
@@ -124,4 +123,47 @@ int deleteAllSuppliers(List** head){
     }
     return 1;
 }
+
+char **threeGreatestSuppliers(List** head) {
+    char auth_num[AUTH_DEALER_NUM_LEN+1];
+    char three_great_supp[3][AUTH_DEALER_NUM_LEN + 1];
+    int index =0;
+    int count_down = 3;
+    long big_check = 0;
+    while (count_down > 0) {
+        List *tmp = (*head);
+        while (tmp != NULL) {
+            if ((strcmp(tmp->data->authorized_dealer_num, three_great_supp[0]) != 0) &&
+                (strcmp(tmp->data->authorized_dealer_num, three_great_supp[1]) != 0) &&
+                (tmp->data->sum_of_general_deals_withSupp > big_check)) {
+                big_check = tmp->data->sum_of_general_deals_withSupp;
+                strcpy(auth_num , tmp->data->authorized_dealer_num);
+                 tmp=tmp->next;
+            }
+             else tmp=tmp->next;}
+        if(strcmp(auth_num ,three_great_supp[0]) !=0 && strcmp(auth_num ,three_great_supp[1]) !=0){
+        strcpy(three_great_supp[index]  , auth_num );}
+        index++;
+        big_check = 0;
+        count_down--;
+    }
+    printf("%s\n", three_great_supp[0]);
+    printf("%s\n", three_great_supp[1]);
+    printf("%s\n" , three_great_supp[2]);
+    return (char **) three_great_supp;
+}
+//char *threeGreatestSupplier_REC(List** head , long* sum){
+//    char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
+//    List *tmp = (*head);
+//    if(tmp==NULL)return NULL;
+//    if(tmp->data->sum_of_general_deals_withSupp > *sum){
+//        *sum = tmp->data->sum_of_general_deals_withSupp;
+//    }
+//    name = threeGreatestSupplier_REC( tmp->next , &sum);
+//
+//
+//
+//
+//}
+
 
