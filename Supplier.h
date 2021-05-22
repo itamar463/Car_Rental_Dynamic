@@ -28,9 +28,6 @@ typedef struct List{
     struct List* next;
 }List;
 
-
-void print1();
-
 List* createSupplierList();
 
 struct Supplier getSupplierDetails();
@@ -43,7 +40,7 @@ int deleteAllSuppliers(List** head);
 
 char **threeGreatestSuppliers_REC();
 
-char **threeGreatestSuppliers();
+char **threeGreatestSuppliers(List** head);
 
-int printSuppliers();
+int printSuppliers(List** head);
 #endif
