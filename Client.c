@@ -176,15 +176,14 @@ int deleteAllClients(ClientList** ClientHead){
         checked_free(temp->data->first_name);
         checked_free(temp->data);
         checked_free(temp);}
-
-    printf("all supplier removed");
+    printf("ALL CLIENTS REMOVED\n");
     return 1;
 }
 int deleteClient(ClientList** ClientHead){
     ClientList* temp = (*ClientHead);
     ClientList* prev;
     char deleteClient[ID_LEN+1];
-    printf("enter id client to remove : ");
+    printf("Enter id client to remove : ");
     scanf("%s" , deleteClient);
     if (temp != NULL && strcmp(temp->data->id,deleteClient)==0){
         (*ClientHead) = temp->next;
@@ -192,7 +191,7 @@ int deleteClient(ClientList** ClientHead){
         checked_free(temp->data->first_name);
         checked_free(temp->data);
         checked_free(temp);
-        printf("client removed\n");
+        printf("CLIENT REMOVED\n");
         return 1;
     }
     while (temp != NULL && (strcmp(deleteClient , temp->data->id) != 0)) {
@@ -200,7 +199,7 @@ int deleteClient(ClientList** ClientHead){
         temp = temp->next;
     }
     if (temp == NULL){
-        printf("client doesnt found\n");
+        printf("CLIENT NOT FOUND\n");
         return 0;
     }
     prev->next = temp->next;
@@ -208,6 +207,6 @@ int deleteClient(ClientList** ClientHead){
     checked_free(temp->data->first_name);
     checked_free(temp->data);
     checked_free(temp);
-    printf("client removed\n");
+    printf("CLIENT REMOVED\n");
     return 1;
 }

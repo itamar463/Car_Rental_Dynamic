@@ -134,6 +134,7 @@ int deleteAllSuppliers(SupplierList** head){
         checked_free(temp->data);
         checked_free(temp);
     }
+    printf("ALL SUPPLIER REMOVED\n");
     return 1;
 }
 
