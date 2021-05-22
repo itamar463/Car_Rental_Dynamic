@@ -12,7 +12,7 @@
 #define LICENSE_NUM_LEN 7
 #define CHASSIS_NUM_LEN 5
 
-typedef struct {
+typedef struct Car{
     char license_number[LICENSE_NUM_LEN + 1];
     char chassis_number[CHASSIS_NUM_LEN + 1];
     char* maker;
@@ -24,18 +24,22 @@ typedef struct {
     int present_car_price;
     int engine_cap;
 }Car;
-int createCarList();
 
-int
-addNewCar();
+typedef struct CarList{
+    Car *data;
+    struct CarList* next;
+}CarList;
+CarList *createCarList();
 
-int carNumberWithGivenCapacity();
+int addNewCar(CarList** head);
 
-int carNumberWithGivenCapacity_REC();
+int carNumberWithGivenCapacity(CarList** head);
 
-int deleteCar();
+int carNumberWithGivenCapacity_REC(CarList* head, int* capacityCheck,CarList* baseHead);
 
-int deleteAllCars();
+int deleteCar(CarList** head);
+
+int deleteAllCars(CarList** head);
 
 int inverseCarList();
 #endif
