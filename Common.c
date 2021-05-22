@@ -26,3 +26,13 @@ int clientNumberWithGivenCarYear(ClientList **ClientHead  , CarList **CarList1) 
     }
     return num_of_car_same_year;
 }
+
+int compareCharacters(char a,char b) {
+    if (a == b) {
+        printf("good\n");
+        return 0;
+    } else {
+        printf("bad\n");
+        return -1;
+    }
+}

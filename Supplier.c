@@ -5,6 +5,7 @@
 #include "Supplier.h"
 
 int printSuppliers(SupplierList** head){
+    /*PRINTS ALL THE SUPPLIERS*/
     SupplierList* tmp = *head;
     while (tmp!=NULL){
         printf("%s\n%s\n%s\n%d\n%ld\n" , tmp->data->supplier_name, tmp->data->authorized_dealer_num , tmp->data->supplier_phone_num , tmp->data->number_of_deals_withSupp ,tmp->data->sum_of_general_deals_withSupp);
@@ -13,13 +14,14 @@ int printSuppliers(SupplierList** head){
 }
 
 SupplierList *createSupplierList(){
+    /*CRATE SUPPLIER LIST*/
     SupplierList *list = NULL;
     return list;
 }
 
 int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier_phone_num,
                 long sum_of_general_deals_withSupp, int number_of_deals_withSupp) {
-    /*check if the values input is according the legality*/
+    /*CHECK IF THE VALUES INPUT IS ACCORDING THE LEGALITY*/
     /*LEN CHECK*/
     if (valid_long(sum_of_general_deals_withSupp, MIN_SUM_DEALS, MAX_SUM_DEALS) == 0) return 0;
     if (valid_int(number_of_deals_withSupp, MIN_NUM_DEALS, MAX_NUM_DEALS) == 0) return 0;
@@ -36,6 +38,7 @@ int checkValues(char *authorized_dealer_num, char *supplier_name, char *supplier
 }
 
 Supplier *initSupplier() {
+    /*INITIALIZING THE SUPPLIER*/
     char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
     char *supplier_name = (char *) checked_malloc(sizeof(char) * 1024);
     char supplier_phone_num[SUPP_PHONE_LEN + 1];
@@ -62,15 +65,17 @@ Supplier *initSupplier() {
         strcpy(temporarySupp->authorized_dealer_num, authorized_dealer_num);
         temporarySupp->sum_of_general_deals_withSupp = sum_of_general_deals_withSupp;
         temporarySupp->number_of_deals_withSupp = number_of_deals_withSupp;
-    } else temporarySupp = NULL;
+    } else strcpy( temporarySupp->authorized_dealer_num  , "-1");
     return temporarySupp;
 }
 
 int addToList(SupplierList **head) {
+    /*CRATE THE SUPPLIER AND PUT IN THE LIST*/
     SupplierList *new;
     new = (SupplierList *) checked_malloc(sizeof(SupplierList));
     new->data = initSupplier();
-    if (new->data == NULL) {
+
+    if (strcmp(new->data->authorized_dealer_num ,"-1") == 0) {
         checked_free(new->data->supplier_name);
         checked_free(new->data);
         checked_free(new);
@@ -81,6 +86,7 @@ int addToList(SupplierList **head) {
     return 1;
 }
 int addNewSupplier(SupplierList **head) {
+    /*CRATE NEW SUPPLIER*/
     int check = addToList(head);
     if (check != 1) {
         printf("Supplier not added\n");
@@ -90,6 +96,7 @@ int addNewSupplier(SupplierList **head) {
 }
 
 int deleteSupplier(SupplierList** head){
+    /*DELETE SUPPLIER WITH GIVEN AUTHORIZED DEALER NUM*/
     SupplierList* temp = (*head);
     SupplierList* prev;
     char deleteSupplier[AUTH_DEALER_NUM_LEN+1];
@@ -118,6 +125,7 @@ int deleteSupplier(SupplierList** head){
     return 1;
 }
 int deleteAllSuppliers(SupplierList** head){
+    /*DELETING ALL SUPPLIERS*/
     SupplierList *temp = (*head);
     SupplierList *curr = *head;
     while(curr != NULL){
@@ -129,34 +137,39 @@ int deleteAllSuppliers(SupplierList** head){
     return 1;
 }
 
-//char **threeGreatestSuppliers(SupplierList** head) {
-//    char auth_num[AUTH_DEALER_NUM_LEN+1];
-//    char *three_great_supp[3][AUTH_DEALER_NUM_LEN + 1];
-//    int index =0;
-//    int count_down = 3;
-//    long big_check = 0;
-//    while (count_down > 0) {
-//        SupplierList *tmp = (*head);
-//        while (tmp != NULL) {
-//            if ((strcmp(tmp->data->authorized_dealer_num, *three_great_supp[0]) != 0) &&
-//                (strcmp(tmp->data->authorized_dealer_num, *three_great_supp[1]) != 0) &&
-//                (tmp->data->sum_of_general_deals_withSupp > big_check)) {
-//                big_check = tmp->data->sum_of_general_deals_withSupp;
-//                strcpy(auth_num , tmp->data->authorized_dealer_num);
-//                 tmp=tmp->next;
-//            }
-//             else tmp=tmp->next;}
-//        if(strcmp(auth_num ,*three_great_supp[0]) !=0 && strcmp(auth_num ,*three_great_supp[1]) !=0){
-//        strcpy(*three_great_supp[index]  , auth_num );}
-//        index++;
-//        big_check = 0;
-//        count_down--;
-//    }
-//    printf("%s\n", three_great_supp[0]);
-//    printf("%s\n", three_great_supp[1]);
-//    printf("%s\n" , three_great_supp[2]);
-//    return (char **) three_great_supp;
-//}
+char **threeGreatestSuppliers(SupplierList** head) {
+    /*PRINT AND RETURN THE 3 GREATEST SUPPLIERS*/
+    char auth_num[AUTH_DEALER_NUM_LEN+1] ;
+    char *three_great_supp[3][AUTH_DEALER_NUM_LEN + 1];
+    *three_great_supp[0]="0";
+    *three_great_supp[0]="0";
+    *three_great_supp[0]="0";
+    int index =0;
+    int count_down = 3;
+    long big_check = 0;
+    while (count_down > 0) {
+        SupplierList *tmp = (*head);
+        while (tmp != NULL) {
+            if ((strcmp(tmp->data->authorized_dealer_num, three_great_supp[0]) != 0) &&
+                (strcmp(tmp->data->authorized_dealer_num, three_great_supp[1]) != 0) &&
+                (tmp->data->sum_of_general_deals_withSupp > big_check)) {
+                big_check = tmp->data->sum_of_general_deals_withSupp;
+                strcpy(auth_num , tmp->data->authorized_dealer_num);
+                 tmp=tmp->next;
+            }
+             else tmp=tmp->next;}
+        if(strcmp(auth_num ,three_great_supp[0]) !=0 && strcmp(auth_num ,three_great_supp[1]) !=0){
+        strcpy(three_great_supp[index]  , auth_num );}
+        index++;
+        big_check = 0;
+        count_down--;
+    }
+    for (index=0 ; index<3 ; index++){
+        if(three_great_supp[index]!="0") {
+            printf("%s\n", three_great_supp[index]);
+        }}
+    return (char **) three_great_supp;
+}
 //char *threeGreatestSupplier_REC(SupplierList** head , long* sum){
 //    char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
 //    SupplierList *tmp = (*head);

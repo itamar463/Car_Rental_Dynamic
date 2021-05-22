@@ -43,6 +43,10 @@ void print_time(Time t) {
 }
 int printClientCarsForGivenRentDate(ClientList** ClientHead){
     ClientList *temp = *ClientHead;
+    if(temp == NULL){
+        printf("THERE NO CLIENTS\n");
+        return 0;
+    }
     int year, month, day;
     printf("Enter date: year , month , day\n");
     scanf("%d %d %d", &year, &month, &day);
@@ -166,7 +170,8 @@ int deleteAllClients(ClientList** ClientHead){
     ClientList *curr = (*ClientHead);
     ClientList *temp = (*ClientHead);
     while(curr != NULL){
-        curr = temp->next;
+        temp=curr;
+        curr = curr->next;
         checked_free(temp->data->last_name);
         checked_free(temp->data->first_name);
         checked_free(temp->data);
@@ -178,7 +183,7 @@ int deleteAllClients(ClientList** ClientHead){
 int deleteClient(ClientList** ClientHead){
     ClientList* temp = (*ClientHead);
     ClientList* prev;
-    char deleteClient[ID_LEN];
+    char deleteClient[ID_LEN+1];
     printf("enter id client to remove : ");
     scanf("%s" , deleteClient);
     if (temp != NULL && strcmp(temp->data->id,deleteClient)==0){
@@ -190,7 +195,7 @@ int deleteClient(ClientList** ClientHead){
         printf("client removed\n");
         return 1;
     }
-    while (temp != NULL && strcmp(temp->data->id,deleteClient) != 0) {
+    while (temp != NULL && (strcmp(deleteClient , temp->data->id) != 0)) {
         prev = temp;
         temp = temp->next;
     }
