@@ -13,15 +13,6 @@ Date create_date(int year, int month, int day) {
     }
     return today;
 }
-
-void print_date(Date d) {
-    /*printing format for Date*/
-    smaller_than_ten(d.day);
-    printf("%d/", d.day);
-    smaller_than_ten(d.month);
-    printf("%d/%d\n", d.month, d.year);
-}
-
 Time create_time(int hour, int minute) {
     /* create Time struct by given details*/
     Time current_hour = { 0 , 0};
@@ -36,12 +27,47 @@ Time create_time(int hour, int minute) {
     return current_hour;
 }
 
+void print_date(Date d) {
+    /*printing format for Date*/
+    smaller_than_ten(d.day);
+    printf("%d/", d.day);
+    smaller_than_ten(d.month);
+    printf("%d/%d\n", d.month, d.year);
+}
 void print_time(Time t) {
     /* print Time format*/
     smaller_than_ten(t.hour);
     printf("%d:", t.hour);
     smaller_than_ten(t.minute);
     printf("%d\n", t.minute);
+}
+int printClientCarsForGivenRentDate(ClientList** ClientHead){
+    ClientList *temp = *ClientHead;
+    int year, month, day;
+    printf("Enter date: year , month , day\n");
+    scanf("%d %d %d", &year, &month, &day);
+    if (date_valid(year, month, day) == 0) {
+        printf("date not valid \n");
+        return 0;}
+
+    while(temp != NULL){
+        if(temp->data->date_of_rent.day == day && temp->data->date_of_rent.year == year &&
+           temp->data->date_of_rent.month == month ){
+            printf("CLIENT :\n"
+                   "first name : %s\n"
+                   "last name : %s\n"
+                   "id : %s\n"
+                   "car licence nuber : %s\n"
+                   "rent price for 24 hours : %d \n",temp->data->first_name , temp->data->last_name
+                    , temp->data->id , temp->data->license_number , temp->data->price_per_rent);
+            printf("rent date : ");
+            print_date(temp->data->date_of_rent);
+            printf("rent time : ");
+            print_time(temp->data->hour_of_rent);
+            temp =  temp->next;
+        }
+    }
+    return 1;
 }
 
 int client_valid(char *first_name, char *last_name, char *id, char *license_number, int price_per_rent) {
@@ -62,6 +88,11 @@ int client_valid(char *first_name, char *last_name, char *id, char *license_numb
         return 0;
     }
     return 1;
+}
+
+ClientList *createClientList() {
+    ClientList *ClientList = NULL;
+    return ClientList;
 }
 
 Client *initClient() {
@@ -108,12 +139,6 @@ Client *initClient() {
 
 
 }
-
-ClientList *createClientList() {
-    ClientList *ClientList = NULL;
-    return ClientList;
-}
-
 int addToListC(ClientList **ClientHead) {
     ClientList *new;
     new = (ClientList *) checked_malloc(sizeof(ClientList));
@@ -128,7 +153,6 @@ int addToListC(ClientList **ClientHead) {
     *ClientHead = new;
     return 1;
 }
-
 int addNewClient(ClientList** ClientHead) {
     /* add a new Client to the clientList by using helper functions*/
     int check = addToListC(ClientHead);
@@ -151,7 +175,6 @@ int deleteAllClients(ClientList** ClientHead){
     printf("all supplier removed");
     return 1;
 }
-
 int deleteClient(ClientList** ClientHead){
     ClientList* temp = (*ClientHead);
     ClientList* prev;
@@ -183,32 +206,3 @@ int deleteClient(ClientList** ClientHead){
     printf("client removed\n");
     return 1;
 }
-
-int printClientCarsForGivenRentDate(ClientList** ClientHead){
-    ClientList *temp = *ClientHead;
-    int year, month, day;
-    printf("Enter date: year , month , day\n");
-    scanf("%d %d %d", &year, &month, &day);
-    if (date_valid(year, month, day) == 0) {
-        printf("date not valid \n");
-        return 0;}
-
-    while(temp != NULL){
-        if(temp->data->date_of_rent.day == day && temp->data->date_of_rent.year == year &&
-                temp->data->date_of_rent.month == month ){
-            printf("CLIENT :\n"
-                   "first name : %s\n"
-                   "last name : %s\n"
-                   "id : %s\n"
-                   "car licence nuber : %s\n"
-                   "rent price for 24 hours : %d \n",temp->data->first_name , temp->data->last_name
-                   , temp->data->id , temp->data->license_number , temp->data->price_per_rent);
-            printf("rent date : ");
-            print_date(temp->data->date_of_rent);
-            printf("rent time : ");
-            print_time(temp->data->hour_of_rent);
-            temp =  temp->next;
-        }
-    }
-    return 1;
-    }

@@ -4,17 +4,16 @@
 
 #include "Supplier.h"
 
-int printSuppliers(List** head){
-    List* tmp = *head;
+int printSuppliers(SupplierList** head){
+    SupplierList* tmp = *head;
     while (tmp!=NULL){
         printf("%s\n%s\n%s\n%d\n%ld\n" , tmp->data->supplier_name, tmp->data->authorized_dealer_num , tmp->data->supplier_phone_num , tmp->data->number_of_deals_withSupp ,tmp->data->sum_of_general_deals_withSupp);
         tmp=tmp->next;
     }
 }
 
-
-List *createSupplierList() {
-    List *list = NULL;
+SupplierList *createSupplierList(){
+    SupplierList *list = NULL;
     return list;
 }
 
@@ -67,9 +66,32 @@ Supplier *initSupplier() {
     return temporarySupp;
 }
 
-int deleteSupplier(List** head){
-    List* temp = (*head);
-    List* prev;
+int addToList(SupplierList **head) {
+    SupplierList *new;
+    new = (SupplierList *) checked_malloc(sizeof(SupplierList));
+    new->data = initSupplier();
+    if (new->data == NULL) {
+        checked_free(new->data->supplier_name);
+        checked_free(new->data);
+        checked_free(new);
+        return 0;
+    }
+    new->next = *head;
+    *head = new;
+    return 1;
+}
+int addNewSupplier(SupplierList **head) {
+    int check = addToList(head);
+    if (check != 1) {
+        printf("Supplier not added\n");
+        return 0;
+    }
+    return 1;
+}
+
+int deleteSupplier(SupplierList** head){
+    SupplierList* temp = (*head);
+    SupplierList* prev;
     char deleteSupplier[AUTH_DEALER_NUM_LEN+1];
     printf("enter the authorized dealer num to remove: ");
     scanf("%s" ,deleteSupplier);
@@ -95,33 +117,11 @@ int deleteSupplier(List** head){
     printf("supplier removed\n");
     return 1;
 }
-
-int addToList(List **head) {
-    List *new;
-    new = (List *) checked_malloc(sizeof(List));
-    new->data = initSupplier();
-    if (new->data == NULL) {
-        checked_free(new);
-        return 0;
-    }
-    new->next = *head;
-    *head = new;
-    return 1;
-}
-
-int addNewSupplier(List **head) {
-    int check = addToList(head);
-    if (check != 1) {
-        printf("Supplier not added\n");
-        return 0;
-    }
-    return 1;
-}
-
-int deleteAllSuppliers(List** head){
-    List *temp = (*head);
-    while (head != NULL){
-        (*head) = temp->next;
+int deleteAllSuppliers(SupplierList** head){
+    SupplierList *temp = (*head);
+    SupplierList *curr = *head;
+    while(curr != NULL){
+        curr = temp->next;
         checked_free(temp->data->supplier_name);
         checked_free(temp->data);
         checked_free(temp);
@@ -129,14 +129,14 @@ int deleteAllSuppliers(List** head){
     return 1;
 }
 
-//char **threeGreatestSuppliers(List** head) {
+//char **threeGreatestSuppliers(SupplierList** head) {
 //    char auth_num[AUTH_DEALER_NUM_LEN+1];
 //    char *three_great_supp[3][AUTH_DEALER_NUM_LEN + 1];
 //    int index =0;
 //    int count_down = 3;
 //    long big_check = 0;
 //    while (count_down > 0) {
-//        List *tmp = (*head);
+//        SupplierList *tmp = (*head);
 //        while (tmp != NULL) {
 //            if ((strcmp(tmp->data->authorized_dealer_num, *three_great_supp[0]) != 0) &&
 //                (strcmp(tmp->data->authorized_dealer_num, *three_great_supp[1]) != 0) &&
@@ -157,9 +157,9 @@ int deleteAllSuppliers(List** head){
 //    printf("%s\n" , three_great_supp[2]);
 //    return (char **) three_great_supp;
 //}
-//char *threeGreatestSupplier_REC(List** head , long* sum){
+//char *threeGreatestSupplier_REC(SupplierList** head , long* sum){
 //    char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
-//    List *tmp = (*head);
+//    SupplierList *tmp = (*head);
 //    if(tmp==NULL)return NULL;
 //    if(tmp->data->sum_of_general_deals_withSupp > *sum){
 //        *sum = tmp->data->sum_of_general_deals_withSupp;

@@ -45,7 +45,7 @@ typedef struct {
 
 typedef struct ClientList{
     Client *data;
-    struct List* next;
+    struct ClientList* next;
 }ClientList;
 
 ClientList *createClientList();

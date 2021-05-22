@@ -23,24 +23,24 @@ typedef struct {
     long sum_of_general_deals_withSupp;
 } Supplier;
 
-typedef struct List{
+typedef struct SupplierList {
     Supplier *data;
-    struct List* next;
-}List;
+    struct SupplierList* next;
+}SupplierList;
 
-List* createSupplierList();
+SupplierList* createSupplierList();
 
 struct Supplier getSupplierDetails();
 
-int addNewSupplier(List** head);
+int addNewSupplier(SupplierList** head);
 
-int deleteSupplier(List** head);
+int deleteSupplier(SupplierList** head);
 
-int deleteAllSuppliers(List** head);
+int deleteAllSuppliers(SupplierList** head);
 
 char **threeGreatestSuppliers_REC();
 
-char **threeGreatestSuppliers(List** head);
+char **threeGreatestSuppliers(SupplierList** head);
 
-int printSuppliers(List** head);
+int printSuppliers(SupplierList** head);
 #endif
