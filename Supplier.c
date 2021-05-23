@@ -1,6 +1,3 @@
-//
-// Created by Itamar on 17/05/2021.
-//
 
 #include "Supplier.h"
 
@@ -151,26 +148,27 @@ char **threeGreatestSuppliers(SupplierList** head) {
     while (count_down > 0) {
         SupplierList *tmp = (*head);
         while (tmp != NULL) {
-            if ((strcmp(tmp->data->authorized_dealer_num, three_great_supp[0]) != FALSE) &&
-                (strcmp(tmp->data->authorized_dealer_num, three_great_supp[1]) != FALSE) &&
+            if ((strcmp(tmp->data->authorized_dealer_num, *three_great_supp[0]) != FALSE) &&
+                (strcmp(tmp->data->authorized_dealer_num, *three_great_supp[1]) != FALSE) &&
                 (tmp->data->sum_of_general_deals_withSupp > big_check)) {
                 big_check = tmp->data->sum_of_general_deals_withSupp;
                 strcpy(auth_num , tmp->data->authorized_dealer_num);
                  tmp=tmp->next;
             }
              else tmp=tmp->next;}
-        if(strcmp(auth_num ,three_great_supp[0]) !=FALSE && strcmp(auth_num ,three_great_supp[1]) !=FALSE){
-        strcpy(three_great_supp[index]  , auth_num );}
+        if(strcmp(auth_num ,*three_great_supp[0]) !=FALSE && strcmp(auth_num ,*three_great_supp[1]) !=FALSE){
+        strcpy(*three_great_supp[index]  , auth_num );}
         index++;
         big_check = 0;
         count_down--;
     }
     for (index=0 ; index<3 ; index++){
-        if(three_great_supp[index]!="0") {
-            printf("%s\n", three_great_supp[index]);
+        if(*three_great_supp[index]!="0") {
+            printf("%s\n", *three_great_supp[index]);
         }}
     return (char **) three_great_supp;
 }
+
 //char *threeGreatestSupplier_REC(SupplierList** head , long* sum){
 //    char authorized_dealer_num[AUTH_DEALER_NUM_LEN + 1];
 //    SupplierList *tmp = (*head);

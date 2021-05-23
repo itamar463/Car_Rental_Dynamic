@@ -1,6 +1,4 @@
-//
-// Created by Itamar on 17/05/2021.
-//
+
 
 #ifndef CAR_RENTAL_DYNAMIC_SUPPLIER_H
 #define CAR_RENTAL_DYNAMIC_SUPPLIER_H

@@ -48,7 +48,9 @@ int printClientCarsForGivenRentDate(ClientList** ClientHead){
         printf("THERE NO CLIENTS\n");
         return FALSE;
     }
-    int year, month, day;
+    int year;
+    int month;
+    int day;
     printf("Enter date: year , month , day\n");
     scanf("%d %d %d", &year, &month, &day);
     if (date_valid(year, month, day) ==   FALSE) {
