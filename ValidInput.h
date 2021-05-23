@@ -7,7 +7,8 @@
 #include <string.h>
 #include <stdio.h>
 #include "stdlib.h"
-
+#define TRUE 1
+#define FALSE 0
 int isLetter(char letter);
 int isDigit(char isNum);
 int valid_char_check(char *str);

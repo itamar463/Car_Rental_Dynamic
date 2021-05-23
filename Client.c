@@ -1,7 +1,7 @@
 
 #include "Client.h"
 Date create_date(int year, int month, int day) {
-    /*Creating a date by given details*/
+    /*CREATING A DATE BY GIVEN DETAILS RETURN TRUE IF SUCCEED ELSE FALSE*/
     Date today = { 0 , 0 , 0};
     if (date_valid(year, month, day) == 0) {
         printf("date not valid \n");

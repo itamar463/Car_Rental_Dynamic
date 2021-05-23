@@ -30,8 +30,6 @@ typedef struct SupplierList {
 
 SupplierList* createSupplierList();
 
-struct Supplier getSupplierDetails();
-
 int addNewSupplier(SupplierList** head);
 
 int deleteSupplier(SupplierList** head);
@@ -42,5 +40,5 @@ char **threeGreatestSuppliers_REC();
 
 char **threeGreatestSuppliers(SupplierList** head);
 
-int printSuppliers(SupplierList** head);
+void printSuppliers(SupplierList** head);
 #endif
