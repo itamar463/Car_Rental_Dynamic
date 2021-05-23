@@ -8,6 +8,7 @@
 #include "Client.h"
 
 int clientNumberWithGivenCarYear(ClientList **ClientHead  , CarList **CarList1) {
+    /*RETURN THE NUMBER OF CLIENTS WITH THE SAME CAR YEAR*/
     CarList *tmpCar = *CarList1;
     int car_manu;
     int num_of_car_same_year = 0;
