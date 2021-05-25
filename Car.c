@@ -94,11 +94,13 @@ Car *init_car() {
 }
 
 int addCarToList(CarList **head) {
-    CarList *new = (CarList *) checked_malloc(sizeof(CarList));
-    new->data = init_car();
     CarList *temp = (*head);
     CarList *prev;
+    CarList *new = (CarList *) checked_malloc(sizeof(CarList));
+    new->data = init_car();
+
     if (new->data == NULL) {
+        checked_free(new->data);
         checked_free(new);
         return 0;
     }
@@ -116,7 +118,6 @@ int addCarToList(CarList **head) {
     return 1;
 }
 
-
 int addNewCar(CarList **head) {
     /* add new car to the list*/
     int check = addCarToList(head);
@@ -127,6 +128,7 @@ int addNewCar(CarList **head) {
     carCounter++;
     return 1;
 }
+
 
 int deleteCar(CarList **head) {
     CarList *temp = (*head);

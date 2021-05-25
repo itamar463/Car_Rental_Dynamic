@@ -133,7 +133,7 @@ Client *initClient() {
     time_of_rent = create_time(hour, minute);
 
     if (client_valid(first_name,last_name,id,license_num,
-                     price_per_rent) == TRUE && date_of_rent.day !=0 && time_of_rent.hour== 0){
+                     price_per_rent) == TRUE && date_of_rent.day !=0 && time_of_rent.hour!= 0){
         strcpy(client->id,id);
         strcpy(client->license_number,license_num);
         client->first_name = dupstr(first_name);
@@ -142,7 +142,12 @@ Client *initClient() {
         client->hour_of_rent = time_of_rent;
         client->price_per_rent = price_per_rent;
         return  client;}
-    strcpy( client->id  , "-1");
+    else{
+        strcpy( client->id  , "-1");
+        checked_free(first_name);
+        checked_free(last_name);
+
+    }
     return client;
 
 
@@ -153,8 +158,7 @@ int addToListC(ClientList **ClientHead) {
     new = (ClientList *) checked_malloc(sizeof(ClientList));
     new->data = initClient();
     if (strcmp(new->data->id ,"-1") ==0) {
-        checked_free(new->data->first_name);
-        checked_free(new->data->last_name);
+        checked_free(new->data);
         checked_free(new);
         return FALSE;
     }
