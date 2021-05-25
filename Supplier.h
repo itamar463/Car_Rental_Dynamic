@@ -1,6 +1,4 @@
-//
-// Created by Itamar on 17/05/2021.
-//
+
 
 #ifndef CAR_RENTAL_DYNAMIC_SUPPLIER_H
 #define CAR_RENTAL_DYNAMIC_SUPPLIER_H
@@ -30,16 +28,15 @@ typedef struct SupplierList {
 
 SupplierList* createSupplierList();
 
-struct Supplier getSupplierDetails();
-
 int addNewSupplier(SupplierList** head);
 
 int deleteSupplier(SupplierList** head);
 
 int deleteAllSuppliers(SupplierList** head);
 
-char **threeGreatestSuppliers_REC(SupplierList** head, SupplierList** baseHead , char** threeGreatList,long supplierSum);
+char **threeGreatestSuppliers_REC(SupplierList **head, char threeGreatSupp[3][11]);
 
-char **threeGreatestSuppliers(SupplierList** head);
+char **threeGreatestSuppliers(SupplierList** head , char threeGreatSupplier[3][11] );
+
 
 #endif

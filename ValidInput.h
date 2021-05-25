@@ -1,13 +1,11 @@
-//
-// Created by Itamar on 17/05/2021.
-//
 
 #ifndef CAR_RENTAL_DYNAMIC_VALIDINPUT_H
 #define CAR_RENTAL_DYNAMIC_VALIDINPUT_H
 #include <string.h>
 #include <stdio.h>
 #include "stdlib.h"
-
+#define TRUE 1
+#define FALSE 0
 int isLetter(char letter);
 int isDigit(char isNum);
 int valid_char_check(char *str);

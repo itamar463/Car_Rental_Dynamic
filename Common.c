@@ -1,11 +1,8 @@
-//
-// Created by Itamar on 17/05/2021.
-//
-
 #include "Common.h"
 #include <stdio.h>
 
 int clientNumberWithGivenCarYear(ClientList **ClientHead  , CarList **CarList1) {
+    /*RETURN THE NUMBER OF CLIENTS WITH THE SAME CAR YEAR*/
     CarList *tmpCar = *CarList1;
     int car_manu;
     int num_of_car_same_year = 0;
@@ -24,23 +21,16 @@ int clientNumberWithGivenCarYear(ClientList **ClientHead  , CarList **CarList1) 
     }
     return num_of_car_same_year;
 }
-
-int compareCharacters(char a,char b) {
-    if (a == b) {
-        printf("good\n");
-        return 0;
-    } else {
-        printf("bad\n");
-        return -1;
-    }
-}
 int printClientCarsForGivenRentDate(ClientList** ClientHead){
     ClientList *temp = *ClientHead;
+    int year;
+    int month;
+    int day;
     if(temp == NULL){
         printf("THERE NO CLIENTS\n");
         return 0;
     }
-    int year, month, day;
+
     printf("Enter date: year , month , day\n");
     scanf("%d %d %d", &year, &month, &day);
     if (date_valid(year, month, day) == 0) {
