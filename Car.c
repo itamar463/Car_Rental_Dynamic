@@ -4,14 +4,14 @@
 static unsigned int carCounter = 0;
 
 CarList *createCarList() {
+    /* creat empty car list*/
     CarList *list = NULL;
     return list;
 }
-
 int valid_car(char *license_num, char *chassis_number, char *maker, char *model, char *color, int year_manufacture,
               int year_get_on_road,
               int price_that_paid, int present_car_price, int engine_cap) {
-    /* check for car validation details by using functions from ValueChecker*/
+    /* check for car validation details by using functions from ValidInput*/
     if ((check_equal_size(license_num, LICENSE_NUM_LEN) == 0) || (valid_digit_check(license_num) == 0)) {
         return 0;
     }
@@ -94,6 +94,7 @@ Car *init_car() {
 }
 
 int addCarToList(CarList **head) {
+    /*adds a new car to the list sorted by engine capacity */
     CarList *new = (CarList *) checked_malloc(sizeof(CarList));
     new->data = init_car();
     CarList *temp = (*head);
@@ -129,6 +130,7 @@ int addNewCar(CarList **head) {
 }
 
 int deleteCar(CarList **head) {
+    /*delete car ny given license number */
     CarList *temp = (*head);
     CarList *prev;
     char deleteCarCheck[LICENSE_NUM_LEN + 1];
@@ -158,6 +160,7 @@ int deleteCar(CarList **head) {
 }
 
 void remove_first_from_list(CarList **head) {
+    /*remove first node from the list */
     CarList *temp;
     CarList *prev = (*head);
     temp = (*head)->next;
@@ -170,6 +173,7 @@ void remove_first_from_list(CarList **head) {
 }
 
 int deleteAllCars(CarList **head) {
+    /*delete all cars from the list by using remove first func */
     while (*head != NULL) {
         remove_first_from_list(head);
     }
@@ -177,6 +181,7 @@ int deleteAllCars(CarList **head) {
 }
 
 int inverseCarList(CarList **head) {
+    /*inverse the the sort of the list */
     CarList *prev = NULL;
     CarList *current = *head;
     CarList *next = NULL;
@@ -191,6 +196,7 @@ int inverseCarList(CarList **head) {
 }
 
 int carNumberWithGivenCapacity(CarList **head) {
+    /* return the amount of cars with the same given capacity */
     int capacityCheck;
     int counter = 0;
     CarList *temp = (*head);
@@ -205,6 +211,7 @@ int carNumberWithGivenCapacity(CarList **head) {
     return counter;
 }
 int carNumberWithGivenCapacity_REC(CarList* head,int * capacityCheck,CarList * baseHead){
+    /* return the amount of cars with the same given capacity in recursion*/
     if (head==baseHead){
         printf("Enter engine capacity: \n");
         scanf("%d",capacityCheck);

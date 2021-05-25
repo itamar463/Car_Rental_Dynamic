@@ -56,5 +56,5 @@ int deleteClient(ClientList** head);
 
 int deleteAllClients(ClientList** head);
 
-int printClientCarsForGivenRentDate(ClientList** head);
+
 #endif

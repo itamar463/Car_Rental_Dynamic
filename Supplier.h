@@ -38,9 +38,8 @@ int deleteSupplier(SupplierList** head);
 
 int deleteAllSuppliers(SupplierList** head);
 
-char **threeGreatestSuppliers_REC();
+char **threeGreatestSuppliers_REC(SupplierList** head, SupplierList** baseHead , char** threeGreatList,long supplierSum);
 
 char **threeGreatestSuppliers(SupplierList** head);
 
-int printSuppliers(SupplierList** head);
 #endif

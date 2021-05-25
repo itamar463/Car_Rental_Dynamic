@@ -6,32 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.h
-string.h
--
-stdio.h
--
-stdlib.h
--
-ValidInput.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/ValidInput.h
-matam.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.h
-
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Client.h
-stdlib.h
--
-string.h
--
-stdio.h
--
-ValidInput.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/ValidInput.h
-matam.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.h
-ctype.h
--
-
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Supplier.c
 Supplier.h
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Supplier.h
@@ -53,16 +27,6 @@ stdio.h
 -
 stdlib.h
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/stdlib.h
-
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/main.c
-stdio.h
--
-Car.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Car.h
-Client.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Client.h
-Supplier.h
-/cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/Supplier.h
 
 /cygdrive/c/Users/Itamar/CLionProjects/Car_Rental_Dynamic/matam.h
 malloc.h

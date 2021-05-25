@@ -41,38 +41,6 @@ void print_time(Time t) {
     smaller_than_ten(t.minute);
     printf("%d\n", t.minute);
 }
-int printClientCarsForGivenRentDate(ClientList** ClientHead){
-    ClientList *temp = *ClientHead;
-    if(temp == NULL){
-        printf("THERE NO CLIENTS\n");
-        return 0;
-    }
-    int year, month, day;
-    printf("Enter date: year , month , day\n");
-    scanf("%d %d %d", &year, &month, &day);
-    if (date_valid(year, month, day) == 0) {
-        printf("date not valid \n");
-        return 0;}
-
-    while(temp != NULL){
-        if(temp->data->date_of_rent.day == day && temp->data->date_of_rent.year == year &&
-           temp->data->date_of_rent.month == month ){
-            printf("CLIENT :\n"
-                   "first name : %s\n"
-                   "last name : %s\n"
-                   "id : %s\n"
-                   "car licence nuber : %s\n"
-                   "rent price for 24 hours : %d \n",temp->data->first_name , temp->data->last_name
-                    , temp->data->id , temp->data->license_number , temp->data->price_per_rent);
-            printf("rent date : ");
-            print_date(temp->data->date_of_rent);
-            printf("rent time : ");
-            print_time(temp->data->hour_of_rent);
-            temp =  temp->next;
-        }
-    }
-    return 1;
-}
 
 int client_valid(char *first_name, char *last_name, char *id, char *license_number, int price_per_rent) {
     /* check for Client validation using functions from ValueChecker*/
@@ -95,6 +63,7 @@ int client_valid(char *first_name, char *last_name, char *id, char *license_numb
 }
 
 ClientList *createClientList() {
+    /*init empty ClientList */
     ClientList *ClientList = NULL;
     return ClientList;
 }
@@ -138,6 +107,8 @@ Client *initClient() {
         client->hour_of_rent = time_of_rent;
         client->price_per_rent = price_per_rent;
         return  client;}
+    checked_free(first_name);
+    checked_free(last_name);
     strcpy( client->id  , "-1");
     return client;
 
@@ -148,8 +119,6 @@ int addToListC(ClientList **ClientHead) {
     new = (ClientList *) checked_malloc(sizeof(ClientList));
     new->data = initClient();
     if (strcmp(new->data->id ,"-1") ==0) {
-        checked_free(new->data->first_name);
-        checked_free(new->data->last_name);
         checked_free(new);
         return 0;
     }
@@ -167,6 +136,7 @@ int addNewClient(ClientList** ClientHead) {
 }
 
 int deleteAllClients(ClientList** ClientHead){
+    /* delete all cars in the list*/
     ClientList *curr = (*ClientHead);
     ClientList *temp = (*ClientHead);
     while(curr != NULL){
@@ -180,6 +150,7 @@ int deleteAllClients(ClientList** ClientHead){
     return 1;
 }
 int deleteClient(ClientList** ClientHead){
+    /* delete client by given ID*/
     ClientList* temp = (*ClientHead);
     ClientList* prev;
     char deleteClient[ID_LEN+1];
