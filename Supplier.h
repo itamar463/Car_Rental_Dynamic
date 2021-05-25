@@ -36,7 +36,7 @@ int deleteAllSuppliers(SupplierList** head);
 
 char **threeGreatestSuppliers_REC();
 
-char **threeGreatestSuppliers(SupplierList** head);
+char **threeGreatestSuppliers(SupplierList** head , char threeGreatSupplier[3][11] );
 
 void printSuppliers(SupplierList** head);
 #endif

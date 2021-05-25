@@ -43,14 +43,14 @@ void print_time(Time t) {
 }
 int printClientCarsForGivenRentDate(ClientList** ClientHead){
     /*PRINTING CLIENT FORMAT IF LIST EMPTY RETURN FALSE ELSE TRUE*/
+    int year;
+    int month;
+    int day;
     ClientList *temp = *ClientHead;
     if(temp == NULL){
         printf("THERE NO CLIENTS\n");
         return FALSE;
     }
-    int year;
-    int month;
-    int day;
     printf("Enter date: year , month , day\n");
     scanf("%d %d %d", &year, &month, &day);
     if (date_valid(year, month, day) ==   FALSE) {
@@ -173,11 +173,10 @@ int addNewClient(ClientList** ClientHead) {
 
 int deleteAllClients(ClientList** ClientHead){
     /*REMOVE ALL THE CLIENTS*/
-    ClientList *curr = (*ClientHead);
     ClientList *temp = (*ClientHead);
-    while(curr != NULL){
-        temp=curr;
-        curr = curr->next;
+    while(*ClientHead  != NULL){
+        temp=*ClientHead;
+        *ClientHead = temp->next;
         checked_free(temp->data->last_name);
         checked_free(temp->data->first_name);
         checked_free(temp->data);
