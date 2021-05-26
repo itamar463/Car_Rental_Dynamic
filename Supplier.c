@@ -178,6 +178,17 @@ char **threeGreatestSuppliers(SupplierList** head , char threeGreatSupplier[3][1
         big_check = 0;
         count_down--;
     }
+
+    printf("Three great suppliers are: \n");
+    printf("[ ");
+    for (index=0; index < 3; index++){
+        if(strcmp(threeGreatSupplier[index],"0")!=0){
+            if (index>2){
+            printf(" %s |",threeGreatSupplier[index]);
+        }   else printf(" %s ",threeGreatSupplier[index]);
+    }}
+    printf("]");
+
     for (index=0 ; index<3 ; index++){
         if(strcmp(threeGreatSupplier[index],"0")!=0) {
             printf("%s\n", threeGreatSupplier[index]);
@@ -216,7 +227,7 @@ char **threeGreatestSuppliers_REC(SupplierList **head, char threeGreatSupp[3][11
     }
     printf("Three great suppliers are: \n");
     printf("[ ");
-    for (i; i < 3; i++){
+    for (i=0; i < 3; i++){
         if (i<2){
             printf(" %s |",threeGreatSupp[i]);
         } else printf(" %s ",threeGreatSupp[i]);
