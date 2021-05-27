@@ -75,10 +75,11 @@ Car *init_car() {
     if (valid_car(license_number, chassis_number, maker, model, color, year_manufacture, year_get_on_road,
                   price_that_paid,
                   present_car_price, engine_cap) == 0) {
-        checked_free(car->model);
-        checked_free(car->maker);
-        checked_free(car->color);
-        return NULL;
+        checked_free(model);
+        checked_free(maker);
+        checked_free(color);
+        car = NULL;
+        return car;
     }
     strcpy(car->license_number, license_number);
     strcpy(car->chassis_number, chassis_number);
