@@ -4,6 +4,7 @@
 static unsigned int carCounter = 0;
 
 CarList *createCarList() {
+    /*init empty list */
     CarList *list = NULL;
     return list;
 }
@@ -95,6 +96,7 @@ Car *init_car() {
 }
 
 int addCarToList(CarList **head) {
+    /* add new car to list*/
     CarList *temp = (*head);
     CarList *prev;
     CarList *new = (CarList *) checked_malloc(sizeof(CarList));
@@ -120,11 +122,11 @@ int addCarToList(CarList **head) {
 }
 
 int addNewCar(CarList **head) {
-    /* add new car to the list*/
+    /* if car is valid add new car to the list*/
     int check = addCarToList(head);
     if (check != 1) {
-        printf("Supplier not added\n");
-        return 0;
+        printf("car not added\n");
+        return FALSE;
     }
     carCounter++;
     return 1;
@@ -132,6 +134,7 @@ int addNewCar(CarList **head) {
 
 
 int deleteCar(CarList **head) {
+    /*delete car from list by given license number */
     CarList *temp = (*head);
     CarList *prev;
     char deleteCarCheck[LICENSE_NUM_LEN + 1];
@@ -161,6 +164,7 @@ int deleteCar(CarList **head) {
 }
 
 void remove_first_from_list(CarList **head) {
+    /*delete first car from list */
     CarList *temp;
     CarList *prev = (*head);
     temp = (*head)->next;
@@ -173,6 +177,7 @@ void remove_first_from_list(CarList **head) {
 }
 
 int deleteAllCars(CarList **head) {
+    /* delete all cars */
     while (*head != NULL) {
         remove_first_from_list(head);
     }
@@ -180,6 +185,7 @@ int deleteAllCars(CarList **head) {
 }
 
 int inverseCarList(CarList **head) {
+    /*inverse the sort of the list */
     CarList *prev = NULL;
     CarList *current = *head;
     CarList *next = NULL;
@@ -194,31 +200,33 @@ int inverseCarList(CarList **head) {
 }
 
 int carNumberWithGivenCapacity(CarList **head) {
+    /*return the number of cars with the same capacity */
     int capacityCheck;
     int counter = 0;
     CarList *temp = (*head);
     printf("Enter engine capacity: \n");
     scanf("%d", &capacityCheck);
     while (temp != NULL) {
-        if (temp->data->engine_cap==capacityCheck){
+        if (temp->data->engine_cap == capacityCheck) {
             counter++;
         }
         temp = temp->next;
     }
-    printf("The number of cars with the same capacity : %d\n" , counter);
+    printf("The number of cars with the same capacity : %d\n", counter);
     return counter;
 }
-int carNumberWithGivenCapacity_REC(CarList* head,int * capacityCheck,CarList * baseHead){
-    if (head==baseHead){
+
+int carNumberWithGivenCapacity_REC(CarList *head, int *capacityCheck, CarList *baseHead) {
+    /*return number of cars with the same capacity */
+    if (head == baseHead) {
         printf("Enter engine capacity: \n");
-        scanf("%d",capacityCheck);
+        scanf("%d", capacityCheck);
     }
-    if (head==NULL){
+    if (head == NULL) {
         return 0;
     }
-    if (head->data->engine_cap==(*capacityCheck)){
-         return 1 + carNumberWithGivenCapacity_REC(head->next , capacityCheck,baseHead);
-    }
-    return 0 + carNumberWithGivenCapacity_REC(head->next , capacityCheck,baseHead);
+    if (head->data->engine_cap == (*capacityCheck)) {
+        return 1 + carNumberWithGivenCapacity_REC(head->next, capacityCheck, baseHead);
+    } else return 0 + carNumberWithGivenCapacity_REC(head->next, capacityCheck, baseHead);
 
 }

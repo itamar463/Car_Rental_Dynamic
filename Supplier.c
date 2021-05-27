@@ -158,7 +158,7 @@ char **threeGreatestSuppliers(SupplierList **head, char threeGreatSupplier[3][11
     int count_down = 3;
     long big_check = 0;
     char auth_num[AUTH_DEALER_NUM_LEN + 1];
-    if (head == NULL){
+    if (head == NULL) {
         printf("No suppliers\n");
         return NULL;
     }
@@ -188,18 +188,19 @@ char **threeGreatestSuppliers(SupplierList **head, char threeGreatSupplier[3][11
     printf("[ ");
     for (index = 0; index < 3; index++) {
         if (strcmp(threeGreatSupplier[index], "0") != 0) {
-            if (index > 2) {
+            if (index < 2) {
                 printf(" %s |", threeGreatSupplier[index]);
             } else printf(" %s ", threeGreatSupplier[index]);
         }
     }
-    printf("]");
+    printf("]\n");
 
     return (char **) *threeGreatSupplier;
 }
 
 void threeGreatSuppliersHelper(SupplierList **head, long check, char biggestSupplier[AUTH_DEALER_NUM_LEN + 1],
                                char threeGreatSupp[3][11]) {
+    /*HELP threeGreatestSuppliers FUNK IN RECURSION*/
     SupplierList *temp = (*head);
     if (temp == NULL) {
         return;
@@ -214,13 +215,14 @@ void threeGreatSuppliersHelper(SupplierList **head, long check, char biggestSupp
 }
 
 char **threeGreatestSuppliers_REC(SupplierList **head, char threeGreatSupp[3][11]) {
+    /*PRINT AND RETURN THE 3 GREATEST SUPPLIERS RECURSION FUNK*/
     SupplierList *temp = *head;
     int i = 0;
     int countDown = 3;
     long check = 0;
     int index = 0;
     char biggestSupplier[AUTH_DEALER_NUM_LEN + 1];
-    if (temp==NULL){
+    if (temp == NULL) {
         printf("No suppliers\n");
         return NULL;
     }
@@ -238,6 +240,6 @@ char **threeGreatestSuppliers_REC(SupplierList **head, char threeGreatSupp[3][11
             printf(" %s |", threeGreatSupp[i]);
         } else printf(" %s ", threeGreatSupp[i]);
     }
-    printf("]");
+    printf("]\n");
     return (char **) threeGreatSupp;
 }

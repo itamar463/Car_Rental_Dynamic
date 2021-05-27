@@ -1,5 +1,6 @@
 
 #include "ValidInput.h"
+
 int isLetter(char letter) {
     /* check if the given char is a letter */
     if ((letter >= 65 && letter <= 90) || (letter >= 97 && letter <= 122)) {
@@ -16,14 +17,15 @@ int isDigit(char isNum) {
 int valid_char_check(char *str) {
     /* check isChar for a String in a for loop*/
     int i;
-    if (strlen(str) == 0){
+    if (strlen(str) == 0) {
         printf("%s is not valid!\n", str);
         return 0;
     }
     for (i = 0; i < strlen(str); i++) {
-        if (isLetter(str[i]) == 0){
+        if (isLetter(str[i]) == 0) {
             printf("%s is not valid!\n", str);
-         return 0;}
+            return 0;
+        }
     }
     return 1;
 }
@@ -31,14 +33,15 @@ int valid_char_check(char *str) {
 int valid_digit_check(char *str) {
     /* check isDigit for a String in a for loop*/
     int i;
-    if (strlen(str) == 0){
+    if (strlen(str) == 0) {
         printf("%s is not valid!\n", str);
         return 0;
     }
     for (i = 0; i < strlen(str); i++) {
-        if (isDigit(str[i]) == 0){
+        if (isDigit(str[i]) == 0) {
             printf("%s is not valid!\n", str);
-         return 0;}
+            return 0;
+        }
     }
     return 1;
 }
@@ -90,15 +93,14 @@ int time_valid(int hour, int minute) {
 
 int check_equal_size(char *str, int size) {
     /* check for equal string size*/
-    if (strlen(str) == 0){
+    if (strlen(str) == 0) {
         printf("%s is not valid!\n", str);
         return 0;
     }
-    if (strlen(str) != size){
+    if (strlen(str) != size) {
         printf("%s is not valid!\n", str);
         return 0;
-    }
-    else return 1;
+    } else return 1;
 }
 
 int valid_int(int num, int min, int max) {
@@ -116,6 +118,7 @@ int valid_long(long num, long min, long max) {
         return 0;
     } else return 1;
 }
+
 char *dupstr(const char *str) {
     /* function as strdup in c99*/
     return strcpy(malloc(strlen(str) + 1), str);

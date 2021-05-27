@@ -136,6 +136,7 @@ int addNewClient(ClientList** ClientHead) {
     int check = addToListC(ClientHead);
     if(check==  FALSE){
         printf("client not added\n");
+        return FALSE;
     }
     return TRUE;
 }
@@ -154,7 +155,7 @@ int deleteAllClients(ClientList** ClientHead){
     return TRUE;
 }
 int deleteClient(ClientList** ClientHead){
-    /*REMOVE CLIENT BY ID CLIENT*/
+    /*REMOVE CLIENT BY GIVEN ID CLIENT*/
     ClientList* temp = (*ClientHead);
     ClientList* prev;
     char deleteClient[ID_LEN+1];

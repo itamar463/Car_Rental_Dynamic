@@ -10,6 +10,7 @@
 #define DAVIS
 int clientNumberWithGivenCarYear(ClientList **ClientHead  , CarList **CarList1);
 #ifdef DAVIS
+
 int printClientCarsForGivenRentDate(ClientList** ClientHead);
 int printSuppliers(SupplierList** head);
 #endif

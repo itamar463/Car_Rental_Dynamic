@@ -2,6 +2,7 @@
 
 #ifndef CAR_RENTAL_DYNAMIC_SUPPLIER_H
 #define CAR_RENTAL_DYNAMIC_SUPPLIER_H
+
 #include "matam.h"
 #include <stdio.h>
 #include <string.h>
@@ -23,20 +24,20 @@ typedef struct {
 
 typedef struct SupplierList {
     Supplier *data;
-    struct SupplierList* next;
-}SupplierList;
+    struct SupplierList *next;
+} SupplierList;
 
-SupplierList* createSupplierList();
+SupplierList *createSupplierList();
 
-int addNewSupplier(SupplierList** head);
+int addNewSupplier(SupplierList **head);
 
-int deleteSupplier(SupplierList** head);
+int deleteSupplier(SupplierList **head);
 
-int deleteAllSuppliers(SupplierList** head);
+int deleteAllSuppliers(SupplierList **head);
 
 char **threeGreatestSuppliers_REC(SupplierList **head, char threeGreatSupp[3][11]);
 
-char **threeGreatestSuppliers(SupplierList** head , char threeGreatSupplier[3][11] );
+char **threeGreatestSuppliers(SupplierList **head, char threeGreatSupplier[3][11]);
 
 
 #endif

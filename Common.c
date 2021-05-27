@@ -25,7 +25,9 @@ int clientNumberWithGivenCarYear(ClientList **ClientHead, CarList **CarList1) {
 }
 
 int printClientCarsForGivenRentDate(ClientList **ClientHead) {
+    /*PRINT CLIENTS WITH THE SAME RENT DATE*/
     ClientList *temp = *ClientHead;
+    int check = 0;
     int year;
     int month;
     int day;
@@ -44,6 +46,7 @@ int printClientCarsForGivenRentDate(ClientList **ClientHead) {
     while (temp != NULL) {
         if (temp->data->date_of_rent.day == day && temp->data->date_of_rent.year == year &&
             temp->data->date_of_rent.month == month) {
+            check++;
             printf("CLIENT :\n"
                    "first name : %s\n"
                    "last name : %s\n"
@@ -55,15 +58,21 @@ int printClientCarsForGivenRentDate(ClientList **ClientHead) {
             print_date(temp->data->date_of_rent);
             printf("rent time : ");
             print_time(temp->data->hour_of_rent);
-            temp = temp->next;
+
         }
+        temp = temp->next;
+
     }
+    if(check== 0) printf("No clients for the given date \n");
     return 1;
 }
 
 int printSuppliers(SupplierList **head) {
     /*PRINTS ALL THE SUPPLIERS*/
     SupplierList *tmp = *head;
+    if(tmp == NULL){
+        printf("No suppliers\n");
+        return FALSE;}
     while (tmp != NULL) {
         printf("Supplier name: %s\nDealer number: %s\nSupplier phone number: %s\nNumber of deals: %d\n"
                "Sum of deals in general: %ld\n",
