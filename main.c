@@ -2,58 +2,51 @@
 #include "Supplier.h"
 #include "Client.h"
 #include "Car.h"
-#include "matam.h"
 #include "Common.h"
 
 char threeGreatSupplier[3][11];
 int i = 0;
 
-void client(ClientList **CList) {
-    /* ask for how many clients would the user add for the list*/
-    int n_client;
-    int check = TRUE;
-    printf("How many client you want to add ? : ");
-    scanf("%d", &n_client);
-    for (i = 0; i < n_client; ++i) {
+void client (ClientList **CList) {
+    /* ask for how many suppliers would the user add for the list*/
+    int check;
+    int n_supplier;
+    printf("How many clients you want to add ? : ");
+    scanf("%d", &n_supplier);
+    for (i = 0; i < n_supplier; ++i) {
+        printf("\nCLIENT: \n");
         check = addNewClient(CList);
-        if (check==FALSE){
-            i--;
-        }
-    }
+    if(check== 0 ) i--;}
 }
 
 void supplier(SupplierList **list) {
     /* ask for how many suppliers would the user add for the list*/
     int n_supplier;
-    int check = TRUE;
+    int check;
     printf("How many supplier you want to add ? : ");
     scanf("%d", &n_supplier);
     for (i = 0; i < n_supplier; ++i) {
         printf("\nSUPPLIER: \n");
-        check = addNewSupplier(list);
-        if (check==FALSE){
-            i--;
-        }
-    }
+        check = addNewSupplier( list);
+        if(check == 0)i--;}
 }
 
 void car(CarList **CarList) {
-    /* ask for how many cars would the user add for the list*/
+    /* ask for how many suppliers would the user add for the list*/
     int n_car;
-    int check = TRUE;
+    int check;
     printf("How many cars you want to add ? : ");
     scanf("%d", &n_car);
     for (i = 0; i < n_car; ++i) {
-        check = addNewCar(CarList);
-        if (check==FALSE){
-            i--;
-        }
-    }
+        printf("\nCAR: \n");
+        check =  addNewCar(CarList);
+        if(check == 0) i--; }
 }
 
-void delete(SupplierList **SList, ClientList **CList, CarList **CarList) {
+void delete(SupplierList **SList, ClientList **CList , CarList **CarList) {
     /* menu for delete options*/
-    int n_delete;
+    int n_delete = 9;
+    while(n_delete!= 0){
     printf("\n Enter your choice:\n"
            "1 - For delete supplier\n"
            "2 - For delete client\n"
@@ -61,7 +54,7 @@ void delete(SupplierList **SList, ClientList **CList, CarList **CarList) {
            "4 - For delete all suppliers\n"
            "5 - For delete all clients\n"
            "6 - For delete all cars\n"
-           "7 - Return\n");
+           "0 - Return\n");
     scanf("%d", &n_delete);
     switch (n_delete) {
         case 1:
@@ -82,18 +75,19 @@ void delete(SupplierList **SList, ClientList **CList, CarList **CarList) {
         case 6:
             deleteAllCars(CarList);
             break;
-        case 7:
+        case 0:
             break;
         default:
             printf("Invalid option %d\n", n_delete);
             break;
-    }
+    }}
 }
 
-void menu(SupplierList **SList, ClientList **CList, CarList **CarList) {
+void menu(SupplierList **SList, ClientList **CList , CarList **CarList) {
     /* menu program for adding and getting details from all the structs*/
     int stop = 20;
     while (stop != 0) {
+        printf("----------------------------------");
         printf("\nHello user \n"
                "Enter your choice :\n"
                "1  - For supplier\n"
@@ -115,25 +109,25 @@ void menu(SupplierList **SList, ClientList **CList, CarList **CarList) {
                 supplier(SList);
                 break;
             case 2:
-                client(CList);
+                client( CList);
                 break;
             case 3:
                 car(CarList);
                 break;
             case 4:
-                clientNumberWithGivenCarYear(CList, CarList);
+                clientNumberWithGivenCarYear( CList , CarList);
                 break;
             case 5:
                 carNumberWithGivenCapacity(CarList);
                 break;
             case 6:
-                carNumberWithGivenCapacity_REC(*CarList, 0, *CarList);
+                carNumberWithGivenCapacity_REC(*CarList, 0 , *CarList);
                 break;
             case 7:
-                threeGreatestSuppliers(SList, threeGreatSupplier);
+                threeGreatestSuppliers(SList , threeGreatSupplier);
                 break;
             case 8:
-                threeGreatestSuppliers_REC(SList, threeGreatSupplier);
+                threeGreatestSuppliers_REC(SList ,  threeGreatSupplier);
                 break;
             case 9:
                 printClientCarsForGivenRentDate(CList);
@@ -142,26 +136,25 @@ void menu(SupplierList **SList, ClientList **CList, CarList **CarList) {
                 printSuppliers(SList);
                 break;
             case 11:
-                delete(SList, CList, CarList);
+                delete(SList, CList , CarList)   ;
                 break;
             case 0:
                 break;
             default:
                 printf("Invalid option %d\n", stop);
                 break;
-        }
-    }
-}
+        }}}
 
 
 int main() {
-    ClientList *CList = createClientList();
+    ClientList  *CList = createClientList();
     SupplierList *suppHead = createSupplierList();
     CarList *CarList = createCarList();
-    menu(&suppHead, &CList, &CarList);
-    deleteAllCars(&CarList);
-    deleteAllClients(&CList);
-    deleteAllSuppliers(&suppHead);
+    menu(&suppHead, &CList , &CarList);
+    free(CarList);
+    free(CList);
+    free(suppHead);
     check_for_exit();
     return 0;
 }
+
