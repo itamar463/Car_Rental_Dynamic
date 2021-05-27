@@ -181,6 +181,7 @@ int deleteAllCars(CarList **head) {
     while (*head != NULL) {
         remove_first_from_list(head);
     }
+    printf("ALL CARS REMOVED\n");
     return 1;
 }
 

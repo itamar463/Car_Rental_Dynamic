@@ -158,7 +158,7 @@ char **threeGreatestSuppliers(SupplierList **head, char threeGreatSupplier[3][11
     int count_down = 3;
     long big_check = 0;
     char auth_num[AUTH_DEALER_NUM_LEN + 1];
-    if (head == NULL) {
+    if (*head == NULL) {
         printf("No suppliers\n");
         return NULL;
     }

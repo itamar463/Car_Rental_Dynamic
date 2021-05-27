@@ -160,6 +160,7 @@ int main() {
     SupplierList *suppHead = createSupplierList();
     CarList *CarList = createCarList();
     menu(&suppHead, &CList, &CarList);
+    /* FOR SAFETY*/
     deleteAllCars(&CarList);
     deleteAllClients(&CList);
     deleteAllSuppliers(&suppHead);
