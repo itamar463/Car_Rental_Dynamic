@@ -204,6 +204,7 @@ int carNumberWithGivenCapacity(CarList **head) {
         }
         temp = temp->next;
     }
+    printf("The number of cars with the same capacity : %d\n" , counter);
     return counter;
 }
 int carNumberWithGivenCapacity_REC(CarList* head,int * capacityCheck,CarList * baseHead){
@@ -218,4 +219,5 @@ int carNumberWithGivenCapacity_REC(CarList* head,int * capacityCheck,CarList * b
          return 1 + carNumberWithGivenCapacity_REC(head->next , capacityCheck,baseHead);
     }
     return 0 + carNumberWithGivenCapacity_REC(head->next , capacityCheck,baseHead);
+
 }

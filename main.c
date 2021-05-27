@@ -4,12 +4,13 @@
 #include "Car.h"
 #include "Common.h"
 
-char threeGreatSupplier[3][11];
-int i = 0;
+
+
 
 void client (ClientList **CList) {
     /* ask for how many suppliers would the user add for the list*/
     int check;
+    int i;
     int n_supplier;
     printf("How many clients you want to add ? : ");
     scanf("%d", &n_supplier);
@@ -22,6 +23,7 @@ void client (ClientList **CList) {
 void supplier(SupplierList **list) {
     /* ask for how many suppliers would the user add for the list*/
     int n_supplier;
+    int i;
     int check;
     printf("How many supplier you want to add ? : ");
     scanf("%d", &n_supplier);
@@ -35,6 +37,7 @@ void car(CarList **CarList) {
     /* ask for how many suppliers would the user add for the list*/
     int n_car;
     int check;
+    int i;
     printf("How many cars you want to add ? : ");
     scanf("%d", &n_car);
     for (i = 0; i < n_car; ++i) {
@@ -85,6 +88,7 @@ void delete(SupplierList **SList, ClientList **CList , CarList **CarList) {
 
 void menu(SupplierList **SList, ClientList **CList , CarList **CarList) {
     /* menu program for adding and getting details from all the structs*/
+    char threeGreatSupplier[3][11];
     int stop = 20;
     while (stop != 0) {
         printf("----------------------------------");
