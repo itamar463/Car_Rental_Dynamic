@@ -41,41 +41,6 @@ void print_time(Time t) {
     smaller_than_ten(t.minute);
     printf("%d\n", t.minute);
 }
-int printClientCarsForGivenRentDate(ClientList** ClientHead){
-    /*PRINTING CLIENT FORMAT IF LIST EMPTY RETURN FALSE ELSE TRUE*/
-    int year;
-    int month;
-    int day;
-    ClientList *temp = *ClientHead;
-    if(temp == NULL){
-        printf("THERE NO CLIENTS\n");
-        return FALSE;
-    }
-    printf("Enter date: year , month , day\n");
-    scanf("%d %d %d", &year, &month, &day);
-    if (date_valid(year, month, day) ==   FALSE) {
-        printf("date not valid \n");
-        return FALSE;}
-
-    while(temp != NULL){
-        if(temp->data->date_of_rent.day == day && temp->data->date_of_rent.year == year &&
-           temp->data->date_of_rent.month == month ){
-            printf("CLIENT :\n"
-                   "first name : %s\n"
-                   "last name : %s\n"
-                   "id : %s\n"
-                   "car licence nuber : %s\n"
-                   "rent price for 24 hours : %d \n",temp->data->first_name , temp->data->last_name
-                    , temp->data->id , temp->data->license_number , temp->data->price_per_rent);
-            printf("rent date : ");
-            print_date(temp->data->date_of_rent);
-            printf("rent time : ");
-            print_time(temp->data->hour_of_rent);
-            temp =  temp->next;
-        }
-    }
-    return TRUE;
-}
 
 int client_valid(char *first_name, char *last_name, char *id, char *license_number, int price_per_rent) {
     /*CHECK FOR CLIENT VALIDATION USING FUNCTION FROM ValueChecker*/

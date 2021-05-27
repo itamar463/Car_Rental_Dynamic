@@ -88,19 +88,6 @@ int time_valid(int hour, int minute) {
     return 1;
 }
 
-int check_value_size(char *str, int size) {
-    /* check the given string size*/
-    if (strlen(str) == 0){
-        printf("%s is not valid!\n", str);
-        return 0;
-    }
-    if (strlen(str) > size){
-        printf("%s is not valid!\n", str);
-        return 0;
-    }
-    else return 1;
-}
-
 int check_equal_size(char *str, int size) {
     /* check for equal string size*/
     if (strlen(str) == 0){
@@ -130,5 +117,6 @@ int valid_long(long num, long min, long max) {
     } else return 1;
 }
 char *dupstr(const char *str) {
+    /* function as strdup in c99*/
     return strcpy(malloc(strlen(str) + 1), str);
 }
