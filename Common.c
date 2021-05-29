@@ -75,7 +75,7 @@ int printSuppliers(SupplierList **head) {
         return FALSE;}
     while (tmp != NULL) {
         printf("Supplier name: %s\nDealer number: %s\nSupplier phone number: %s\nNumber of deals: %d\n"
-               "Sum of deals in general: %ld\n",
+               "Sum of deals in general: %ld\n\n",
                tmp->data->supplier_name,
                tmp->data->authorized_dealer_num,
                tmp->data->supplier_phone_num, tmp->data->number_of_deals_withSupp,

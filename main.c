@@ -104,8 +104,10 @@ void menu(SupplierList **SList, ClientList **CList, CarList **CarList) {
                "6  - For car number with given capacity REC\n"
                "7  - Three greatest supplier\n"
                "8  - Three greatest supplier REC\n"
+               #ifdef DAVIS
                "9  - Print client cars for given rent date\n"
                "10 - Print Suppliers\n"
+               #endif
                "11 - For delete \n"
                "0 - For exit\n"
                " ---->");
@@ -136,12 +138,14 @@ void menu(SupplierList **SList, ClientList **CList, CarList **CarList) {
             case 8:
                 threeGreatestSuppliers_REC(SList, threeGreatSupplier);
                 break;
-            case 9:
+            #ifdef DAVIS
+                case 9:
                 printClientCarsForGivenRentDate(CList);
                 break;
             case 10:
                 printSuppliers(SList);
                 break;
+            #endif
             case 11:
                 delete(SList, CList, CarList);
                 break;

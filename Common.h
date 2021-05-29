@@ -7,7 +7,8 @@
 #include "Car.h"
 #include "Supplier.h"
 #include "Client.h"
-#define DAVIS
+
+
 int clientNumberWithGivenCarYear(ClientList **ClientHead  , CarList **CarList1);
 #ifdef DAVIS
 
